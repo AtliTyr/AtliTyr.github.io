@@ -78,8 +78,8 @@ main p {
 }
 
 .table-orders {
+    table-layout: fixed;
     border-collapse:collapse;
-    width:50%;
     text-align:center;
     margin-bottom: 2.5rem;
 }
