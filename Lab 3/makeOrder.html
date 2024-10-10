@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Собрать заказ</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shantell%20Sans">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="main">
+        <header class="font-h-sets">
+            <h1>Food Construct</h1>
+            
+            <nav class="font-reg-sets">
+                <ul>
+                    <li><a href="./index.html">О нас</a></li>
+                    <li><a class="active" href="./makeOrder.html">Собрать ланч</a></li>
+                    <li><a href="./inDev.html">Заказы</a></li>
+                    <li><a href="#footer">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section>
+
+                <h2 class="font-h-sets">Выберите суп</h2>
+                <div class="font-reg-sets block_order">
+                    <div class="single_order">
+                        <img src="order_images/soups/gazpacho.jpg" alt="Гаспачо">
+                        <p class="price-p">195₽</p>
+                        <p class="name-p">Гаспачо</p>
+                        <p class="weight-p">350г</p>
+                        <button>Добавить</button>
+                    </div>
+
+                    <div class="single_order">
+                        <img src="order_images/soups/mushroom_soup.jpg" alt="Грибной суп-пюре">
+                        <p class="price-p">185₽</p>
+                        <p class="name-p">Грибной суп-пюре</p>
+                        <p class="weight-p">330г</p>
+                        <button>Добавить</button>
+                    </div>
+
+                    <div class="single_order">
+                        <img src="order_images/soups/norwegian_soup.jpg" alt="Норвежский суп">
+                        <p class="price-p">270₽</p>
+                        <p class="name-p">Норвежский суп</p>
+                        <p class="weight-p">330г</p>
+                        <button>Добавить</button>
+                    </div>
+                </div>
+                
+                <h2 class="font-h-sets">Выберите главное блюдо</h2>
+                <div class="font-reg-sets block_order">
+                    <div class="single_order">
+                        <img src="order_images/main_course/friedpotatoeswithmushrooms1.jpg" alt="Жареная картошка с грибами">
+                        <p class="price-p">150₽</p>
+                        <p class="name-p">Жареная картошка с грибами</p>
+                        <p class="weight-p">250г</p>
+                        <button>Добавить</button>
+                    </div>
+
+                    <div class="single_order">
+                        <img src="order_images/main_course/lasagna.jpg" alt="Лазанья">
+                        <p class="price-p">385₽</p>
+                        <p class="name-p">Лазанья</p>
+                        <p class="weight-p">310г</p>
+                        <button>Добавить</button>
+                    </div>
+
+                    <div class="single_order">
+                        <img src="order_images/main_course/chickencutletsandmashedpotatoes.jpg" alt="Котлеты из курицы с картофельным пюре">
+                        <p class="price-p">225₽</p>
+                        <p class="name-p">Котлеты из курицы с картофельным пюре</p>
+                        <p class="weight-p">280г</p>
+                        <button>Добавить</button>
+                    </div>
+                </div>
+
+                <h2 class="font-h-sets">Выберите напиток</h2>
+                <div class="font-reg-sets block_order">
+                    <div class="single_order">
+                        <img src="order_images/beverages/orangejuice.jpg" alt="Апельсиновый сок">
+                        <p class="price-p">120₽</p>
+                        <p class="name-p">Апельсиновый сок</p>
+                        <p class="weight-p">300мл</p>
+                        <button>Добавить</button>
+                    </div>
+
+                    <div class="single_order">
+                        <img src="order_images/beverages/applejuice.jpg" alt="Яблочный сок">
+                        <p class="price-p">90₽</p>
+                        <p class="name-p">Яблочный сок</p>
+                        <p class="weight-p">300мл</p>
+                        <button>Добавить</button>
+                    </div>
+
+                    <div class="single_order">
+                        <img src="order_images/beverages/carrotjuice.jpg" alt="Морковный сок">
+                        <p class="price-p">110₽</p>
+                        <p class="name-p">Морковный сок</p>
+                        <p class="weight-p">300мл</p>
+                        <button>Добавить</button>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+        
+        <contact-form>
+            <h1 class="font-h-sets">Сделать заказ</h1>
+            <form class="contact-form_font" method="POST" action="https://httpbin.org/post">
+                <div class="contact-order-block">
+                    <h1 class="font-reg-sets">Ваш заказ</h1>
+                    <div>
+                        <label for="soup">Суп</label>
+                        <select name="soup-category" id="soup" required>
+                            <option value="">-- Выберите суп --</option>
+                            <option value="gazpacho">Гаспачо</option>
+                            <option value="mushroom_soup">Грибной суп-пюре</option>
+                            <option value="norwegian_soup">Норвежский суп</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="main-course">Главное блюдо</label>
+                        <select name="main-course-category" id="main-course" required>
+                            <option value="">-- Выберите главное блюдо --</option>
+                            <option value="friedpotatoeswithmushrooms">Жареная картошка с грибами</option>
+                            <option value="lasagna">Лазанья</option>
+                            <option value="chickencutletsandmashedpotatoes">Котлеты из курицы с картофельным пюре</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="beverages">Напиток</label>
+                        <select name="beverages-category" id="beverages" required>
+                            <option value="">-- Выберите напиток --</option>
+                            <option value="orangejuice">Апельсиновый сок</option>
+                            <option value="applejuice">Яблочный сок</option>
+                            <option value="carrotjuice">Морковный сок</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="comment">Комментарии к заказу</label>
+                        <textarea name="comment-section" id="comment" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                
+                <div class="contact-order-block">
+                    <h1 class="font-reg-sets">Ваши данные</h1>
+                    <div>
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" placeholder="Ivanov Ivan" required>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
+                    </div>
+                    <div class="newsletter">
+                        <input type="checkbox" name="get-newsletter" id="newsletter" checked>
+                        <label for="newsletter">Получать информацию о скидках и акциях</label>
+                    </div>
+                    <div>
+                        <label for="phone_number">Номер телефона: </label>
+                        <input type="tel" id="phone_number" name="phone_number" placeholder="+7 (999) 999-99-99" required>
+                    </div>
+                    <div>
+                        <label for="address">Адрес доставки</label>
+                        <input type="text" id="address" name="address" required>
+                        <small><br>Доставка осуществляется только по Москве</small>
+                    </div>
+
+                    <fieldset>
+                        <legend>Время доставки</legend>
+                        <div>
+                            <input type="radio" id="sooner-than-indicated_time" name="sooner_or_not" value="sooner" required>
+                            <label for="sooner-than-indicated_time">Как можно скорее</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="to-indicated_time" name="sooner_or_not" value="to-time">
+                            <label for="to-indicated_time">К указанному времени</label>
+                        </div>
+                    </fieldset>
+
+                    <div>
+                        <label for="delivery_date_range">Укажите время доставки</label>
+                        <input type="time" id="delivery_date_range" name="date" min="07:00" max="23:00" step="300" required>
+                        <small><br>Доступное время доставки с 7:00 до 23:00</small>
+                    </div>
+
+                    <div class="contact-form_buttons">
+                        <button class="contact-form_font" type="submit">Отправить</button>
+                        <button class="contact-form_font" type="reset">Сбросить</button>
+                    </div>
+                </div>
+            </form>
+        </contact-form>
+
+        <footer id="footer" class="font-h-sets">
+            <p>Позвонить нам  +7-000-000-00-00</p>
+        </footer>
+    </div>
+</body>
+</html>
