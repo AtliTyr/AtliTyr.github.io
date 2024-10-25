@@ -241,7 +241,7 @@ contact-form form {
 }
 
 .order_update input {
-    visibility: hidden;
+    display: none;
 }
 
 .nothing-chosen {
