@@ -1,0 +1,28 @@
+figure {
+    text-align: center;
+}
+
+figure > img {
+    width: 10%;
+    height: 10%;
+}
+
+body h1 {
+    text-align: center;
+}
+
+body a {
+    font-family: Pacifico;
+    font-size:xx-large;
+    font-weight: 400;
+    text-decoration: none;
+    color: black;
+}
+
+body p {
+    text-align: left;
+}
+
+body a:hover {
+    color: coral;
+}
