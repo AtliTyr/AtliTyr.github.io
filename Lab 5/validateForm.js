@@ -1,8 +1,10 @@
 document.forms.item(0).addEventListener("submit", function(event) {
-    if (selectedBeverages === undefined || 
-        selectedSoup === undefined || 
-        selectedMain_course === undefined) { 
+    if (selectedBeverages === undefined && 
+        selectedSoup === undefined && 
+        selectedMain_course === undefined &&
+        selectedDessert === undefined &&
+        selectedSalads_starters === undefined) { 
         event.preventDefault();
-        alert('Заказ не полный');
+        alert('Закажи что-нибудь! -_-');
     }   
 });
