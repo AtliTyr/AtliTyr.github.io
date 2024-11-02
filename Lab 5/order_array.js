@@ -54,7 +54,7 @@ orderArray.push(new Order(
     'Рамен', 
     '375₽', 
     'soups', 
-    '425', 
+    '425г', 
     'soups/ramen.jpg',
     'meat'));
 
