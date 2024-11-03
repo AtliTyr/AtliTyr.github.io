@@ -5,6 +5,9 @@ let selectedDessert;
 let selectedSalads_starters;
 let total;
 
+let selectedOrder;
+let order_category;
+
 function checkVisibility() {
     if (selectedBeverages === undefined 
         && selectedSoup === undefined 
@@ -110,86 +113,59 @@ function updateOrderInfo() {
 }
 
 function ev_process() {
+
     switch (event.target.parentNode.parentNode.id) {
     case 'soup':
-        function soups_click() {
-            if (selectedSoup) {
-                selectedSoup.style.border = '2px solid transparent';
-                if (selectedSoup.dataset.dish === 
-                    event.target.parentNode.dataset.dish) {
-                    selectedSoup = undefined;
-                    return;
-                }
-            }
-            selectedSoup = event.target.parentNode;
-            selectedSoup.style.border = '2px solid tomato'; 
-        }
-        soups_click();
-        updateOrderInfo();
+        selectedOrder = selectedSoup;
         break;
     case 'main_course':
-        function main_courses_click() {
-            if (selectedMain_course) {
-                selectedMain_course.style.border = '2px solid transparent';
-                if (selectedMain_course.dataset.dish === 
-                    event.target.parentNode.dataset.dish) {
-                    selectedMain_course = undefined;
-                    return;
-                }
-            }
-            selectedMain_course = event.target.parentNode;
-            selectedMain_course.style.border = '2px solid tomato'; 
-        }
-        main_courses_click();
-        updateOrderInfo();
+        selectedOrder = selectedMain_course;
         break;
     case 'beverage':
-        function beverages_click() {
-            if (selectedBeverages) {
-                selectedBeverages.style.border = '2px solid transparent';
-                if (selectedBeverages.dataset.dish === 
-                    event.target.parentNode.dataset.dish) {
-                    selectedBeverages = undefined;
-                    return;
-                }
-            }
-            selectedBeverages = event.target.parentNode;
-            selectedBeverages.style.border = '2px solid tomato'; 
-        }
-        beverages_click();
-        updateOrderInfo();
+        selectedOrder = selectedBeverages;
         break;
     case 'dessert':
-        function desserts_click() {
-            if (selectedDessert) {
-                selectedDessert.style.border = '2px solid transparent';
-                if (selectedDessert.dataset.dish === 
-                    event.target.parentNode.dataset.dish) {
-                    selectedDessert = undefined;
-                    return;
-                }
-            }
-            selectedDessert = event.target.parentNode;
-            selectedDessert.style.border = '2px solid tomato'; 
-        }
-        desserts_click();
-        updateOrderInfo();
+        selectedOrder = selectedDessert;
         break;
     case 'salad_starter':
-        function salad_starter_click() {
-            if (selectedSalads_starters) {
-                selectedSalads_starters.style.border = '2px solid transparent';
-                if (selectedSalads_starters.dataset.dish === 
-                    event.target.parentNode.dataset.dish) {
-                    selectedSalads_starters = undefined;
-                    return;
-                }
-            }
-            selectedSalads_starters = event.target.parentNode;
-            selectedSalads_starters.style.border = '2px solid tomato'; 
-        }
-        salad_starter_click();
-        updateOrderInfo();
+        selectedOrder = selectedSalads_starters;
         break;
     }
+    order_category = event.target.parentNode.parentNode.id;
+
+
+    function on_click() {
+        if (selectedOrder) {
+            selectedOrder.style.border = '';
+            if (selectedOrder.dataset.dish ===
+                event.target.parentNode.dataset.dish) {
+                selectedOrder = undefined;
+                return;
+            }
+        }
+        selectedOrder = event.target.parentNode;
+        selectedOrder.style.border = '2px solid tomato'; 
+    }
+    on_click();
+
+    switch (event.target.parentNode.parentNode.id) {
+    case 'soup':
+        selectedSoup = selectedOrder;
+        break;
+    case 'main_course':
+        selectedMain_course = selectedOrder;
+        break;
+    case 'beverage':
+        selectedBeverages = selectedOrder;
+        break;
+    case 'dessert':
+        selectedDessert = selectedOrder;
+        break;
+    case 'salad_starter':
+        selectedSalads_starters = selectedOrder;
+        break;
+    }
+
+    updateOrderInfo();
+
 }
