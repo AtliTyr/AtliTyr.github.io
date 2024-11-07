@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+}
+
+.font-h-sets {
+    font-family: "Pacifico";
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.font-reg-sets {
+    font-family: "Shantell Sans";
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+}
+
+header nav {
+    margin: 24px 3rem;
+}
+
+header h1 {
+    margin-left: 3rem;
+}
+
+header ul {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 15px;
+
+    list-style: none;
+    padding: 0;
+}
+
+header li {
+    display: inline;
+    margin-right: 1.8rem;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+header a:hover {
+    color: tomato;
+}
+
+.active {
+    color: tomato;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 0.1rem 0;
+    padding-left: 2rem;
+}
+
+footer p {
+    margin: 0;
+    padding: 1.5rem;
+}
+
+main {
+    margin: 0 3rem;
+    flex:1;
+}
+
+main ul {
+    padding: 0;
+}
+
+main p {
+    text-align: justify;
+}
+
+.food-image {
+    margin: 0;
+}
+
+.food-image > img {
+    height: 100%;
+    width: 700px;
+}
+
+.table-orders {
+    border-collapse:collapse;
+    text-align:center;
+    margin-bottom: 2.5rem;
+}
+
+.table-orders th, td { 
+    padding:10px 7px;
+    line-height:20px;
+    vertical-align: middle;
+    border: 3px solid #000000;
+}
+
+@media only screen and (max-width: 800px) {
+    header ul {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .food-image > img {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    header h1 {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    header ul {
+        flex-direction: column;
+        align-items: center;
+        font-size: 28px;
+    }
+
+    .table-orders tbody {
+        font-size: 22px;
+    }
+
+    .table-orders {
+        width: 100%;
+    }
+
+    .food-image > img {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .table-orders tbody {
+        font-size: 20px;
+    }
+}
