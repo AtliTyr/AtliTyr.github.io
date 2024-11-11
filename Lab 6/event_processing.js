@@ -1,3 +1,5 @@
+"use strict";
+
 let selectedSoup;
 let selectedMain_course;
 let selectedBeverages;

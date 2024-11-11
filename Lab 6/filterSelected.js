@@ -1,3 +1,5 @@
+"use strict";
+
 let soupFilter;
 let mainCourseFilter;
 let beverageFilter;

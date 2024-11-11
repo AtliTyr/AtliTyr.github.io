@@ -1,3 +1,5 @@
+"use strict";
+
 let soupIcon = {
     pathToImage: "icons/soup.png",
     label: "Суп"

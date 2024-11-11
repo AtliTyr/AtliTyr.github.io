@@ -1,3 +1,5 @@
+"use strict";
+
 for (let obj of orderArray) {
     let temp = document.createElement('div');
     temp.className = 'single_order';
