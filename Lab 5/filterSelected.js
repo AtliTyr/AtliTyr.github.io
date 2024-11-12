@@ -1,7 +1,9 @@
+"use strict";
+
 let soupFilter;
 let mainCourseFilter;
 let beverageFilter;
-let salad_starterFilter;
+let saladStarterFilter;
 let dessertFilter;
 
 let selectedFilter;
@@ -22,7 +24,7 @@ function hideOtherOrders(event, className) {
         break;
     case 'filt_salads_starters':
         className = 'salad_starter';
-        selectedFilter = salad_starterFilter;
+        selectedFilter = saladStarterFilter;
         break;
     case 'filt_beverages':
         className = 'beverage';
@@ -34,18 +36,18 @@ function hideOtherOrders(event, className) {
         break;
     }
 
-    let order_l = document.getElementById(className).children;
+    let orderL = document.getElementById(className).children;
 
     if (selectedFilter === undefined) {
         selectedFilter = event.target;
         selectedFilter.classList.add('filter_active');
 
-        for (let i = 0; i < order_l.length; i++) {
-            let obj = searchByKeyword(order_l.item(i).dataset.dish);
+        for (let i = 0; i < orderL.length; i++) {
+            let obj = searchByKeyword(orderL.item(i).dataset.dish);
             if (obj.kind !== event.target.dataset.kind) {
-                order_l.item(i).style.display = 'none';
+                orderL.item(i).style.display = 'none';
             } else {
-                order_l.item(i).style.display = 'flex';
+                orderL.item(i).style.display = 'flex';
             }    
         }
     } else {
@@ -53,8 +55,8 @@ function hideOtherOrders(event, className) {
             selectedFilter.classList.remove('filter_active');
             selectedFilter = undefined;
 
-            for (let i = 0; i < order_l.length; i++) 
-                order_l.item(i).style.display = 'flex'; 
+            for (let i = 0; i < orderL.length; i++) 
+                orderL.item(i).style.display = 'flex'; 
         } else {
 
             selectedFilter.classList.remove('filter_active');
@@ -62,12 +64,12 @@ function hideOtherOrders(event, className) {
             selectedFilter = event.target;
             selectedFilter.classList.add('filter_active');
 
-            for (let i = 0; i < order_l.length; i++) {
-                let obj = searchByKeyword(order_l.item(i).dataset.dish);
+            for (let i = 0; i < orderL.length; i++) {
+                let obj = searchByKeyword(orderL.item(i).dataset.dish);
                 if (obj.kind !== event.target.dataset.kind) {
-                    order_l.item(i).style.display = 'none';
+                    orderL.item(i).style.display = 'none';
                 } else {
-                    order_l.item(i).style.display = 'flex';
+                    orderL.item(i).style.display = 'flex';
                 }    
             }
         }
@@ -81,7 +83,7 @@ function hideOtherOrders(event, className) {
         soupFilter = selectedFilter;
         break;
     case 'salad_starter':
-        salad_starterFilter = selectedFilter;
+        saladStarterFilter = selectedFilter;
         break;
     case 'beverage':
         beverageFilter = selectedFilter;

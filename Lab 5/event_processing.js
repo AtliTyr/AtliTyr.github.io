@@ -1,19 +1,21 @@
+"use strict";
+
 let selectedSoup;
-let selectedMain_course;
+let selectedMainCourse;
 let selectedBeverages;
 let selectedDessert;
-let selectedSalads_starters;
+let selectedSaladsStarters;
 let total;
 
 let selectedOrder;
-let order_category;
+let orderCategory;
 
 function checkVisibility() {
     if (selectedBeverages === undefined 
         && selectedSoup === undefined 
-        && selectedMain_course === undefined
+        && selectedMainCourse === undefined
         && selectedDessert === undefined
-        && selectedSalads_starters === undefined) {
+        && selectedSaladsStarters === undefined) {
         document.getElementsByClassName('order_update').
             item(0).
             style.
@@ -39,7 +41,7 @@ function updateOrderInfo() {
 
     let form = document.querySelectorAll('.order_update p');
 
-    let order_price;
+    let orderPrice;
     for (let i = 0; i < form.length; i++) {
         let el = form.item(i);
 
@@ -49,30 +51,30 @@ function updateOrderInfo() {
                 let obj = searchByKeyword(selectedSoup.dataset.dish);
                 el.innerHTML = `${obj.name} ${obj.price}`;
                 
-                order_price = (obj.price).substring(0, obj.price.length - 1);
-                total += +order_price;
+                orderPrice = (obj.price).substring(0, obj.price.length - 1);
+                total += +orderPrice;
             } else {
                 el.innerHTML = `Суп не выбран`;
             }
             break;
         case 'main-courses':
-            if (selectedMain_course) {
+            if (selectedMainCourse) {
                 let obj = searchByKeyword(selectedMain_course.dataset.dish);
                 el.innerHTML = `${obj.name} ${obj.price}`;
         
-                order_price = (obj.price).substring(0, obj.price.length - 1); 
-                total += +order_price;
+                orderPrice = (obj.price).substring(0, obj.price.length - 1); 
+                total += +orderPrice;
             } else {
                 el.innerHTML = 'Блюдо не выбрано';
             }
             break;
         case 'salads_starters':
-            if (selectedSalads_starters) {
-                let obj = searchByKeyword(selectedSalads_starters.dataset.dish);
+            if (selectedSaladsStarters) {
+                let obj = searchByKeyword(selectedSaladsStarters.dataset.dish);
                 el.innerHTML = `${obj.name} ${obj.price}`;
         
-                order_price = (obj.price).substring(0, obj.price.length - 1); 
-                total += +order_price;
+                orderPrice = (obj.price).substring(0, obj.price.length - 1); 
+                total += +orderPrice;
             } else {
                 el.innerHTML = 'Салат или стартер не выбран';
             } 
@@ -82,8 +84,8 @@ function updateOrderInfo() {
                 let obj = searchByKeyword(selectedBeverages.dataset.dish);
                 el.innerHTML = `${obj.name} ${obj.price}`;
         
-                order_price = (obj.price).substring(0, obj.price.length - 1); 
-                total += +order_price;
+                orderPrice = (obj.price).substring(0, obj.price.length - 1); 
+                total += +orderPrice;
             } else {
                 el.innerHTML = 'Напиток не выбран';
             } 
@@ -93,8 +95,8 @@ function updateOrderInfo() {
                 let obj = searchByKeyword(selectedDessert.dataset.dish);
                 el.innerHTML = `${obj.name} ${obj.price}`;
         
-                order_price = (obj.price).substring(0, obj.price.length - 1); 
-                total += +order_price;
+                orderPrice = (obj.price).substring(0, obj.price.length - 1); 
+                total += +orderPrice;
             } else {
                 el.innerHTML = 'Дессерт не выбран';
             } 
@@ -119,7 +121,7 @@ function ev_process() {
         selectedOrder = selectedSoup;
         break;
     case 'main_course':
-        selectedOrder = selectedMain_course;
+        selectedOrder = selectedMainCourse;
         break;
     case 'beverage':
         selectedOrder = selectedBeverages;
@@ -128,10 +130,10 @@ function ev_process() {
         selectedOrder = selectedDessert;
         break;
     case 'salad_starter':
-        selectedOrder = selectedSalads_starters;
+        selectedOrder = selectedSaladsStarters;
         break;
     }
-    order_category = event.target.parentNode.parentNode.id;
+    orderCategory = event.target.parentNode.parentNode.id;
 
 
     function on_click() {
@@ -153,7 +155,7 @@ function ev_process() {
         selectedSoup = selectedOrder;
         break;
     case 'main_course':
-        selectedMain_course = selectedOrder;
+        selectedMainCourse = selectedOrder;
         break;
     case 'beverage':
         selectedBeverages = selectedOrder;
@@ -162,7 +164,7 @@ function ev_process() {
         selectedDessert = selectedOrder;
         break;
     case 'salad_starter':
-        selectedSalads_starters = selectedOrder;
+        selectedSaladsStarters = selectedOrder;
         break;
     }
 

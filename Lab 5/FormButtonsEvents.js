@@ -1,3 +1,5 @@
+"use strict";
+
 function fillHiddenInputs() {
     let elems = document.querySelectorAll(".order_update > div > input");
 
@@ -12,7 +14,7 @@ function fillHiddenInputs() {
             }
             break;
         case 'main-courses':
-            if (selectedMain_course) {
+            if (selectedMainCourse) {
                 let obj = searchByKeyword(selectedMain_course.dataset.dish);
                 currentValue.value = `${obj.keyword}`;
             } else {
@@ -20,8 +22,8 @@ function fillHiddenInputs() {
             }
             break;
         case 'salads_starters':
-            if (selectedSalads_starters) {
-                let obj = searchByKeyword(selectedSalads_starters.dataset.dish);
+            if (selectedSaladsStarters) {
+                let obj = searchByKeyword(selectedSaladsStarters.dataset.dish);
                 currentValue.value = `${obj.keyword}`;
             } else {
                 currentValue.value = ``;

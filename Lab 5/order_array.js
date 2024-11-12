@@ -1,3 +1,5 @@
+"use strict";
+
 function Order(keyword, name, price, category, count, image, kind) {
     this.keyword = keyword;
     this.name = name;
