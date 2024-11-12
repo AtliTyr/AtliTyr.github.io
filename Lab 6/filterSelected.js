@@ -3,7 +3,7 @@
 let soupFilter;
 let mainCourseFilter;
 let beverageFilter;
-let salad_starterFilter;
+let saladStarterFilter;
 let dessertFilter;
 
 let selectedFilter;
@@ -24,7 +24,7 @@ function hideOtherOrders(event, className) {
         break;
     case 'filt_salads_starters':
         className = 'salad_starter';
-        selectedFilter = salad_starterFilter;
+        selectedFilter = saladStarterFilter;
         break;
     case 'filt_beverages':
         className = 'beverage';
@@ -83,7 +83,7 @@ function hideOtherOrders(event, className) {
         soupFilter = selectedFilter;
         break;
     case 'salad_starter':
-        salad_starterFilter = selectedFilter;
+        saladStarterFilter = selectedFilter;
         break;
     case 'beverage':
         beverageFilter = selectedFilter;

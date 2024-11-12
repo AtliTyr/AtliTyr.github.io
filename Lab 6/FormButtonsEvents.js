@@ -21,8 +21,8 @@ function fillHiddenInputs() {
             }
             break;
         case 'main-courses':
-            if (selectedMain_course) {
-                let obj = searchByKeyword(selectedMain_course.dataset.dish);
+            if (selectedMainCourse) {
+                let obj = searchByKeyword(selectedMainCourse.dataset.dish);
                 currentValue.value = `${obj.keyword}`;
 
                 selectedCategories["main"] = true;
@@ -33,8 +33,8 @@ function fillHiddenInputs() {
             }
             break;
         case 'salads_starters':
-            if (selectedSalads_starters) {
-                let obj = searchByKeyword(selectedSalads_starters.dataset.dish);
+            if (selectedSaladsStarters) {
+                let obj = searchByKeyword(selectedSaladsStarters.dataset.dish);
                 currentValue.value = `${obj.keyword}`;
 
                 selectedCategories["salad"] = true;
