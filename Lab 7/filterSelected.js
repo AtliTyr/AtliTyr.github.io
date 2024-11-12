@@ -36,18 +36,18 @@ function hideOtherOrders(event, className) {
         break;
     }
 
-    let orderL = document.getElementById(className).children;
+    let order_l = document.getElementById(className).children;
 
     if (selectedFilter === undefined) {
         selectedFilter = event.target;
         selectedFilter.classList.add('filter_active');
 
-        for (let i = 0; i < orderL.length; i++) {
-            let obj = searchByKeyword(orderL.item(i).dataset.dish);
+        for (let i = 0; i < order_l.length; i++) {
+            let obj = searchByKeyword(order_l.item(i).dataset.dish);
             if (obj.kind !== event.target.dataset.kind) {
-                orderL.item(i).style.display = 'none';
+                order_l.item(i).style.display = 'none';
             } else {
-                orderL.item(i).style.display = 'flex';
+                order_l.item(i).style.display = 'flex';
             }    
         }
     } else {
@@ -55,8 +55,8 @@ function hideOtherOrders(event, className) {
             selectedFilter.classList.remove('filter_active');
             selectedFilter = undefined;
 
-            for (let i = 0; i < orderL.length; i++) 
-                orderL.item(i).style.display = 'flex'; 
+            for (let i = 0; i < order_l.length; i++) 
+                order_l.item(i).style.display = 'flex'; 
         } else {
 
             selectedFilter.classList.remove('filter_active');
@@ -64,12 +64,12 @@ function hideOtherOrders(event, className) {
             selectedFilter = event.target;
             selectedFilter.classList.add('filter_active');
 
-            for (let i = 0; i < orderL.length; i++) {
-                let obj = searchByKeyword(orderL.item(i).dataset.dish);
+            for (let i = 0; i < order_l.length; i++) {
+                let obj = searchByKeyword(order_l.item(i).dataset.dish);
                 if (obj.kind !== event.target.dataset.kind) {
-                    orderL.item(i).style.display = 'none';
+                    order_l.item(i).style.display = 'none';
                 } else {
-                    orderL.item(i).style.display = 'flex';
+                    order_l.item(i).style.display = 'flex';
                 }    
             }
         }
@@ -94,7 +94,7 @@ function hideOtherOrders(event, className) {
     }
 }
 
-let filtList = document.querySelectorAll('.filter').
+let filt_list = document.querySelectorAll('.filter').
     forEach(function(currentValue) {
         let className = currentValue.classList.item(1);
         document.

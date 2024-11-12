@@ -1,6 +1,7 @@
 "use strict";
 
 for (let obj of orderArray) {
+
     let temp = document.createElement('div');
     temp.className = 'single_order';
     temp.dataset.dish = obj.keyword;
@@ -8,7 +9,7 @@ for (let obj of orderArray) {
                           <p class="price-p">${obj.price}</p>
                           <p class="name-p">${obj.name}</p>
                           <p class="weight-p">${obj.count}</p>
-                          <button onclick="ev_process()">Добавить</button>`;
+                          <button onclick="evProcess()">Добавить</button>`;
         
     switch (obj.category) {
     case 'soups':

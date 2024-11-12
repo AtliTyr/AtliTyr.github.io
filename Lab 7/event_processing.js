@@ -49,9 +49,9 @@ function updateOrderInfo() {
         case 'soups':
             if (selectedSoup) {
                 let obj = searchByKeyword(selectedSoup.dataset.dish);
-                el.innerHTML = `${obj.name} ${obj.price}`;
+                el.innerHTML = `${obj.name} ${obj.price} ₽`;
                 
-                orderPrice = (obj.price).substring(0, obj.price.length - 1);
+                orderPrice = obj.price;
                 total += +orderPrice;
             } else {
                 el.innerHTML = `Суп не выбран`;
@@ -59,10 +59,10 @@ function updateOrderInfo() {
             break;
         case 'main-courses':
             if (selectedMainCourse) {
-                let obj = searchByKeyword(selectedMain_course.dataset.dish);
-                el.innerHTML = `${obj.name} ${obj.price}`;
+                let obj = searchByKeyword(selectedMainCourse.dataset.dish);
+                el.innerHTML = `${obj.name} ${obj.price} ₽`;
         
-                orderPrice = (obj.price).substring(0, obj.price.length - 1); 
+                orderPrice = obj.price;
                 total += +orderPrice;
             } else {
                 el.innerHTML = 'Блюдо не выбрано';
@@ -71,9 +71,9 @@ function updateOrderInfo() {
         case 'salads_starters':
             if (selectedSaladsStarters) {
                 let obj = searchByKeyword(selectedSaladsStarters.dataset.dish);
-                el.innerHTML = `${obj.name} ${obj.price}`;
+                el.innerHTML = `${obj.name} ${obj.price} ₽`;
         
-                orderPrice = (obj.price).substring(0, obj.price.length - 1); 
+                orderPrice = obj.price;
                 total += +orderPrice;
             } else {
                 el.innerHTML = 'Салат или стартер не выбран';
@@ -82,9 +82,9 @@ function updateOrderInfo() {
         case 'beverages':
             if (selectedBeverages) {
                 let obj = searchByKeyword(selectedBeverages.dataset.dish);
-                el.innerHTML = `${obj.name} ${obj.price}`;
+                el.innerHTML = `${obj.name} ${obj.price} ₽`;
         
-                orderPrice = (obj.price).substring(0, obj.price.length - 1); 
+                orderPrice = obj.price;
                 total += +orderPrice;
             } else {
                 el.innerHTML = 'Напиток не выбран';
@@ -93,9 +93,9 @@ function updateOrderInfo() {
         case 'desserts':
             if (selectedDessert) {
                 let obj = searchByKeyword(selectedDessert.dataset.dish);
-                el.innerHTML = `${obj.name} ${obj.price}`;
+                el.innerHTML = `${obj.name} ${obj.price} ₽`;
         
-                orderPrice = (obj.price).substring(0, obj.price.length - 1); 
+                orderPrice = obj.price;
                 total += +orderPrice;
             } else {
                 el.innerHTML = 'Дессерт не выбран';
@@ -136,7 +136,7 @@ function evProcess() {
     orderCategory = event.target.parentNode.parentNode.id;
 
 
-    function onСlick() {
+    function onClick() {
         if (selectedOrder) {
             selectedOrder.style.border = '';
             if (selectedOrder.dataset.dish ===
@@ -148,7 +148,7 @@ function evProcess() {
         selectedOrder = event.target.parentNode;
         selectedOrder.style.border = '2px solid tomato'; 
     }
-    onСlick();
+    onClick();
 
     switch (event.target.parentNode.parentNode.id) {
     case 'soup':

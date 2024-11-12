@@ -1,5 +1,16 @@
 "use strict";
 
+let orderArray = [];
+
+function searchByKeyword(keyword) {
+    for (let obj of orderArray) {
+        if (obj.keyword === keyword) {
+            return obj;
+        }
+    }
+    return undefined;
+}
+
 function Order(keyword, name, price, category, count, image, kind) {
     this.keyword = keyword;
     this.name = name;
@@ -11,10 +22,7 @@ function Order(keyword, name, price, category, count, image, kind) {
     return this;
 }
 
-let orderArray = [];
-
 // Супы
-
 orderArray.push(new Order(
     'gazpacho', 
     'Гаспачо', 
@@ -292,14 +300,5 @@ orderArray.push(new Order(
     'desserts/donuts2.jpg',
     'medium'));
 
-    
-orderArray.sort((a, b) => (a.name > b.name) ? 1 : a.name === b.name ? 0 : -1);
 
-function searchByKeyword(keyword) {
-    for (let obj of orderArray) {
-        if (obj.keyword === keyword) {
-            return obj;
-        }
-    }
-    return undefined;
-}
+orderArray.sort((a, b) => (a.name > b.name) ? 1 : a.name === b.name ? 0 : -1);

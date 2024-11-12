@@ -8,7 +8,7 @@ let selectedSaladsStarters;
 let total;
 
 let selectedOrder;
-let order_category;
+let orderСategory;
 
 function checkVisibility() {
     if (selectedBeverages === undefined 
@@ -114,7 +114,7 @@ function updateOrderInfo() {
     }
 }
 
-function ev_process() {
+function evProcess() {
 
     switch (event.target.parentNode.parentNode.id) {
     case 'soup':
@@ -133,10 +133,10 @@ function ev_process() {
         selectedOrder = selectedSaladsStarters;
         break;
     }
-    order_category = event.target.parentNode.parentNode.id;
+    orderСategory = event.target.parentNode.parentNode.id;
 
 
-    function on_click() {
+    function onClick() {
         if (selectedOrder) {
             selectedOrder.style.border = '';
             if (selectedOrder.dataset.dish ===
@@ -148,7 +148,7 @@ function ev_process() {
         selectedOrder = event.target.parentNode;
         selectedOrder.style.border = '2px solid tomato'; 
     }
-    on_click();
+    onClick();
 
     switch (event.target.parentNode.parentNode.id) {
     case 'soup':
