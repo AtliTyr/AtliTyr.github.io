@@ -21,20 +21,12 @@ async function loadDishes() {
             const response = await fetch(url);
             const data = await response.json();
             orderArray = data;
-            // Обработайте данные здесь
+            
             resolve(data);
         } catch (error) {
             reject(error);
         }
     });
-
-    /*loadDishesPromise = fetch(url).then(function (response) {
-        response.text().then(function (text) {
-            orderArray = JSON.parse(text);
-            orderArray.sort(
-                (a, b) => (a.name > b.name) ? 1 : a.name === b.name ? 0 : -1);
-        });
-    }); */
 }   
 
 loadDishes();
