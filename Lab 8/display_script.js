@@ -33,4 +33,12 @@
         }
     }
 
+    for (let i = 0; i < window.localStorage.length; i++) {
+        document.querySelector(`div[data-dish=${
+            window.localStorage.getItem(window.localStorage.key(i))}]`).
+            style.border = `2px solid tomato`;
+    }
+
+    updateOrderInfo();
+
 })();

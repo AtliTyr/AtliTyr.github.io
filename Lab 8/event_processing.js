@@ -1,21 +1,7 @@
 "use strict";
 
-let selectedSoup;
-let selectedMainCourse;
-let selectedBeverages;
-let selectedDessert;
-let selectedSaladsStarters;
-let total;
-
-let selectedOrder;
-let orderCategory;
-
-function checkVisibility() {
-    if (selectedBeverages === undefined 
-        && selectedSoup === undefined 
-        && selectedMainCourse === undefined
-        && selectedDessert === undefined
-        && selectedSaladsStarters === undefined) {
+/*function checkVisibility() {
+    if (window.localStorage.length == 0) {
         document.getElementsByClassName('order_update').
             item(0).
             style.
@@ -34,140 +20,96 @@ function checkVisibility() {
             style.
             display = "none";
     }
+}*/
+
+function checkVisibility() {
+    if (window.localStorage.length == 0) {
+        document.getElementsByClassName('placingOrder').
+            item(0).
+            style.
+            display = "none";
+    } else { 
+        document.getElementsByClassName('placingOrder').
+            item(0).
+            style.
+            display = "flex";
+    }
 }
 
 function updateOrderInfo() {
-    total = 0;
+    let total = 0;
 
-    let form = document.querySelectorAll('.order_update p');
+    let sum = document.querySelector(".placingOrder .font-reg-sets");
 
-    let orderPrice;
-    for (let i = 0; i < form.length; i++) {
-        let el = form.item(i);
-
-        switch (el.nextElementSibling.id) {
-        case 'soups':
-            if (selectedSoup) {
-                let obj = searchByKeyword(selectedSoup.dataset.dish);
-                el.innerHTML = `${obj.name} ${obj.price} ₽`;
-                
-                orderPrice = obj.price;
-                total += +orderPrice;
-            } else {
-                el.innerHTML = `Суп не выбран`;
-            }
-            break;
-        case 'main-courses':
-            if (selectedMainCourse) {
-                let obj = searchByKeyword(selectedMainCourse.dataset.dish);
-                el.innerHTML = `${obj.name} ${obj.price} ₽`;
-        
-                orderPrice = obj.price;
-                total += +orderPrice;
-            } else {
-                el.innerHTML = 'Блюдо не выбрано';
-            }
-            break;
-        case 'salads_starters':
-            if (selectedSaladsStarters) {
-                let obj = searchByKeyword(selectedSaladsStarters.dataset.dish);
-                el.innerHTML = `${obj.name} ${obj.price} ₽`;
-        
-                orderPrice = obj.price;
-                total += +orderPrice;
-            } else {
-                el.innerHTML = 'Салат или стартер не выбран';
-            } 
-            break;
-        case 'beverages':
-            if (selectedBeverages) {
-                let obj = searchByKeyword(selectedBeverages.dataset.dish);
-                el.innerHTML = `${obj.name} ${obj.price} ₽`;
-        
-                orderPrice = obj.price;
-                total += +orderPrice;
-            } else {
-                el.innerHTML = 'Напиток не выбран';
-            } 
-            break;
-        case 'desserts':
-            if (selectedDessert) {
-                let obj = searchByKeyword(selectedDessert.dataset.dish);
-                el.innerHTML = `${obj.name} ${obj.price} ₽`;
-        
-                orderPrice = obj.price;
-                total += +orderPrice;
-            } else {
-                el.innerHTML = 'Дессерт не выбран';
-            } 
-            break;
-        case 'total':
-            if (total != 0) {
-                form.item(5).innerHTML = `${total} ₽`;
-            } else {
-                form.item(5).innerHTML = '';
-            }
-            break;
-        }
-
-        checkVisibility();  
+    for (let i = 0; i < window.localStorage.length; i++) {
+        let ordPrice = searchByKeyword(
+            window.localStorage.getItem(
+                window.localStorage.key(i)
+            ));
+        total += +ordPrice.price;
     }
+
+    sum.innerHTML = `${total} ₽`;
+
+    checkVisibility();
+
+    /*let tagP = document.getElementsByClassName("updatable_info");
+    for (let i = 0; i < tagP.length; i++) {
+        let category = tagP.item(i).dataset.category;
+        let checkIfSelected = window.localStorage.getItem(category);
+        if (checkIfSelected != null) {
+
+            let order = searchByKeyword(checkIfSelected);
+            tagP.item(i).innerHTML = `${order.name} ${order.price} ₽`;
+            total += +order.price;
+        } else {
+            switch (category) {
+            case "soup":
+                tagP.item(i).innerHTML = `Суп не выбран`;
+                break;
+            case "main_course":
+                tagP.item(i).innerHTML = `Главное блюдо не выбрано`;
+                break;
+            case "salad_starter":
+                tagP.item(i).innerHTML = `Салат/стартер не выбран`;
+                break;
+            case "beverage":
+                tagP.item(i).innerHTML = `Напиток не выбран`;
+                break;
+            case "dessert":
+                tagP.item(i).innerHTML = `Десерт не выбран`;
+                break;
+            }
+        }
+    }
+
+    document.querySelector(".updatable_info.total_sum").
+        innerHTML = `${total} ₽`;
+
+    checkVisibility();
+    */
 }
 
 function evProcess() {
 
-    switch (event.target.parentNode.parentNode.id) {
-    case 'soup':
-        selectedOrder = selectedSoup;
-        break;
-    case 'main_course':
-        selectedOrder = selectedMainCourse;
-        break;
-    case 'beverage':
-        selectedOrder = selectedBeverages;
-        break;
-    case 'dessert':
-        selectedOrder = selectedDessert;
-        break;
-    case 'salad_starter':
-        selectedOrder = selectedSaladsStarters;
-        break;
+    let selected = event.target.parentNode;
+    let selectedCategoryId = selected.parentNode.id;
+    let selectedDish = selected.dataset.dish;
+
+    let oldDish = window.localStorage.getItem(selectedCategoryId);
+
+    if (oldDish !== null) {
+        window.localStorage.removeItem(selectedCategoryId);
+        let oldSelectedElement = document.querySelector(
+            `div[data-dish="${oldDish}"]`
+        );
+        oldSelectedElement.style.border = "";
     }
-    orderCategory = event.target.parentNode.parentNode.id;
 
-
-    function onClick() {
-        if (selectedOrder) {
-            selectedOrder.style.border = '';
-            if (selectedOrder.dataset.dish ===
-                event.target.parentNode.dataset.dish) {
-                selectedOrder = undefined;
-                return;
-            }
-        }
-        selectedOrder = event.target.parentNode;
-        selectedOrder.style.border = '2px solid tomato'; 
-    }
-    onClick();
-
-    switch (event.target.parentNode.parentNode.id) {
-    case 'soup':
-        selectedSoup = selectedOrder;
-        break;
-    case 'main_course':
-        selectedMainCourse = selectedOrder;
-        break;
-    case 'beverage':
-        selectedBeverages = selectedOrder;
-        break;
-    case 'dessert':
-        selectedDessert = selectedOrder;
-        break;
-    case 'salad_starter':
-        selectedSaladsStarters = selectedOrder;
-        break;
+    if (oldDish != selectedDish) {
+        window.localStorage.setItem(selectedCategoryId, selectedDish);
+        selected.style.border = `2px solid tomato`;    
     }
 
     updateOrderInfo();
-
 }

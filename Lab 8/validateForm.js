@@ -1,8 +1,9 @@
 "use strict";
 
-let msg;
+/*let msg;
 
 function verifyOrder () {
+
     let tempCheck = false;
     Object.keys(selectedCategories).forEach(function(currentValue) {
         if (selectedCategories[currentValue]) {
@@ -27,7 +28,7 @@ function verifyOrder () {
         msg = "Выберите суп или главное блюдо";
         return false;
     } 
-    if ((selectedCategories["drink"] || selectedCategories["desert"]) &&
+    if ((selectedCategories["drink"] || selectedCategories["dessert"]) &&
         !(selectedCategories["main"] || 
             selectedCategories["soup"] || 
             selectedCategories["salad"])) {
@@ -62,4 +63,4 @@ document.forms.item(0).addEventListener("submit", function(event) {
         };
     }
 
-});
+});*/

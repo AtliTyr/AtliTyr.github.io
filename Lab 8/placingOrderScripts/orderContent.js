@@ -1,18 +1,3 @@
-"use strict";
-
-let orderArray = [];
-
-let loadDishesPromise;
-
-function searchByKeyword(keyword) {
-    for (let obj of orderArray) {
-        if (obj.keyword === keyword) {
-            return obj;
-        }
-    }
-    return undefined;
-}
-
 async function loadDishes() {
     let url = "https://edu.std-900.ist.mospolytech.ru/labs/api/dishes";
 
@@ -30,5 +15,3 @@ async function loadDishes() {
 }   
 
 loadDishes();
-
-//window.localStorage.clear();
