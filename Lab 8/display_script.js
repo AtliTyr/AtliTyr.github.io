@@ -34,6 +34,9 @@
     }
 
     for (let i = 0; i < window.localStorage.length; i++) {
+        console.dir(orderArray);
+        console.dir(`key - ${window.localStorage.key(i)}`);
+        
         let obj = searchByID(
             window.localStorage.getItem(window.localStorage.key(i))
         );
