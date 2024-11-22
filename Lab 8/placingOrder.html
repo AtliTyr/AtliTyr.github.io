@@ -38,7 +38,104 @@
                 <script src="placingOrderScripts/deleteEvent.js"></script>
             </section>
             <section>
-                <h2 class="font-h-sets placing">Оформление заказа</h2>
+                
+                <contact-form>
+                    <h1 class="font-h-sets placing">Оформление заказа</h1>
+                    <form class="contact-form_font" method="POST" action="https://httpbin.org/post">
+                        <script src="validateForm.js"></script>
+                        <div class="contact-order-block">
+                            <h1 class="font-reg-sets">Ваш заказ</h1>
+                            <p class="nothing-chosen">Ничего не выбрано</p>
+                            <div class="order_update">
+                                <div>   
+                                    <label for="soups">Суп</label>
+                                    <p class="updatable_info">Суп не выбран</p>
+                                    <input type="text" id="soups" name="soups-category">
+                                </div> 
+                                <div>
+                                    <label for="main-courses">Главное блюдо</label>
+                                    <p class="updatable_info">Блюдо не выбрано</p>
+                                    <input type="text" id="main-courses" name="main-courses-category">
+                                </div>
+                                <div>
+                                    <label for="salads_starters">Салат или стартер</label>
+                                    <p class="updatable_info">Салат или стартер не выбран</p>
+                                    <input type="text" id="salads_starters" name="salads_starters-category">
+                                </div>
+                                <div>
+                                    <label for="beverages">Напиток</label>
+                                    <p class="updatable_info">Напиток не выбран</p>
+                                    <input type="text" id="beverages" name="beverages-category">
+                                </div>    
+                                <div>
+                                    <label for="desserts">Дессерт</label>
+                                    <p class="updatable_info">Дессерт не выбран</p>
+                                    <input type="text" id="desserts" name="desserts-category">
+                                </div> 
+                                <div>
+                                    <label for="total" class="total_sum">Стоимость заказа</label>
+                                    <p class="updatable_info total_sum"></p>
+                                    <input type="text" id="total" name="Total">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="comment">Комментарии к заказу</label>
+                                <textarea name="comment-section" id="comment" cols="30" rows="10"></textarea>
+                            </div>
+        
+                        </div>
+                        
+                        <div class="contact-order-block">
+                            <h1 class="font-reg-sets">Ваши данные</h1>
+                            <div>
+                                <label for="name">Имя</label>
+                                <input type="text" id="name" name="name" placeholder="Ivanov Ivan" required>
+                            </div>
+                            <div>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
+                            </div>
+                            <div class="newsletter">
+                                <input type="checkbox" name="get-newsletter" id="newsletter" checked>
+                                <label for="newsletter">Получать информацию о скидках и акциях</label>
+                            </div>
+                            <div>
+                                <label for="phone_number">Номер телефона: </label>
+                                <input type="tel" id="phone_number" name="phone_number" placeholder="+7 (999) 999-99-99" required>
+                            </div>
+                            <div>
+                                <label for="address">Адрес доставки</label>
+                                <input type="text" id="address" name="address" required>
+                                <small><br>Доставка осуществляется только по Москве</small>
+                            </div>
+        
+                            <fieldset>
+                                <legend>Время доставки</legend>
+                                <div>
+                                    <input type="radio" id="sooner-than-indicated_time" name="sooner_or_not" value="sooner" required>
+                                    <label for="sooner-than-indicated_time">Как можно скорее</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="to-indicated_time" name="sooner_or_not" value="to-time">
+                                    <label for="to-indicated_time">К указанному времени</label>
+                                </div>
+                            </fieldset>
+        
+                            <div>
+                                <label for="delivery_date_range">Укажите время доставки</label>
+                                <input type="time" id="delivery_date_range" name="date" min="07:00" max="23:00" step="300" required>
+                                <small><br>Доступное время доставки с 7:00 до 23:00</small>
+                            </div>
+        
+                            <div class="contact-form_buttons">
+                                <button class="contact-form_font submit_button" type="submit">Отправить</button>
+                                <button class="contact-form_font" type="reset">Сбросить</button>
+                            </div>
+                        </div>
+                        
+                        <script src="FormButtonsEvents.js"></script>
+                    </form>
+                </contact-form>
             </section>
         </main>
     </div>

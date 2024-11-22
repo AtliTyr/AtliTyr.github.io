@@ -15,7 +15,7 @@ function searchByKeyword(keyword) {
 
 function searchByID(id) {
     for (let obj of orderArray) {
-        if (obj.id == id) {
+        if (+obj.id === +id) {
             return obj;
         }
     }
