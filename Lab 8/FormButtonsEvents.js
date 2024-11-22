@@ -21,13 +21,13 @@ function fillSelectedCategories() {
         case "soup":
             selectedCategories["soup"] = true;
             break;
-        case "main_course":
+        case "main-course":
             selectedCategories["main"] = true;
             break;
-        case "salad_starter":
+        case "salad":
             selectedCategories["salad"] = true;
             break;
-        case "beverage":
+        case "drink":
             selectedCategories["drink"] = true;
             break;
         case "dessert":

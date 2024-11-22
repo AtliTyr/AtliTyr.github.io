@@ -42,7 +42,7 @@ function updateOrderInfo() {
     let sum = document.querySelector(".placingOrder .font-reg-sets");
 
     for (let i = 0; i < window.localStorage.length; i++) {
-        let ordPrice = searchByKeyword(
+        let ordPrice = searchByID(
             window.localStorage.getItem(
                 window.localStorage.key(i)
             ));
@@ -52,62 +52,30 @@ function updateOrderInfo() {
     sum.innerHTML = `${total} ₽`;
 
     checkVisibility();
-
-    /*let tagP = document.getElementsByClassName("updatable_info");
-    for (let i = 0; i < tagP.length; i++) {
-        let category = tagP.item(i).dataset.category;
-        let checkIfSelected = window.localStorage.getItem(category);
-        if (checkIfSelected != null) {
-
-            let order = searchByKeyword(checkIfSelected);
-            tagP.item(i).innerHTML = `${order.name} ${order.price} ₽`;
-            total += +order.price;
-        } else {
-            switch (category) {
-            case "soup":
-                tagP.item(i).innerHTML = `Суп не выбран`;
-                break;
-            case "main_course":
-                tagP.item(i).innerHTML = `Главное блюдо не выбрано`;
-                break;
-            case "salad_starter":
-                tagP.item(i).innerHTML = `Салат/стартер не выбран`;
-                break;
-            case "beverage":
-                tagP.item(i).innerHTML = `Напиток не выбран`;
-                break;
-            case "dessert":
-                tagP.item(i).innerHTML = `Десерт не выбран`;
-                break;
-            }
-        }
-    }
-
-    document.querySelector(".updatable_info.total_sum").
-        innerHTML = `${total} ₽`;
-
-    checkVisibility();
-    */
 }
 
 function evProcess() {
 
     let selected = event.target.parentNode;
-    let selectedCategoryId = selected.parentNode.id;
+    let selectedCategoryId = searchByKeyword(selected.dataset.dish).category;
     let selectedDish = selected.dataset.dish;
 
-    let oldDish = window.localStorage.getItem(selectedCategoryId);
+    let orderID = window.localStorage.getItem(selectedCategoryId);
 
-    if (oldDish !== null) {
+    //let oldDish = window.localStorage.getItem(selectedCategoryId);
+
+    if (orderID !== null) {
         window.localStorage.removeItem(selectedCategoryId);
         let oldSelectedElement = document.querySelector(
-            `div[data-dish="${oldDish}"]`
+            `div[data-dish="${searchByID(orderID).keyword}"]`
         );
         oldSelectedElement.style.border = "";
     }
 
-    if (oldDish != selectedDish) {
-        window.localStorage.setItem(selectedCategoryId, selectedDish);
+    if (orderID != searchByKeyword(selectedDish).id) {
+        window.localStorage.setItem(
+            selectedCategoryId, 
+            searchByKeyword(selectedDish).id);
         selected.style.border = `2px solid tomato`;    
     }
 

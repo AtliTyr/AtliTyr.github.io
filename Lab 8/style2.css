@@ -430,6 +430,20 @@ contact-form form {
     margin-bottom: 10px;
 }
 
+.order-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;   
+}
+
+.noMeals {
+    display: block;
+}
+
+.content a {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 800px) {
     header ul {
         flex-direction: row;

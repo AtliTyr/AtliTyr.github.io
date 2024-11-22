@@ -13,6 +13,15 @@ function searchByKeyword(keyword) {
     return undefined;
 }
 
+function searchByID(id) {
+    for (let obj of orderArray) {
+        if (obj.id == id) {
+            return obj;
+        }
+    }
+    return undefined;
+}
+
 async function loadDishes() {
     let url = "https://edu.std-900.ist.mospolytech.ru/labs/api/dishes";
 

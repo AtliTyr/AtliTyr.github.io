@@ -34,8 +34,10 @@
     }
 
     for (let i = 0; i < window.localStorage.length; i++) {
-        document.querySelector(`div[data-dish=${
-            window.localStorage.getItem(window.localStorage.key(i))}]`).
+        let obj = searchByID(
+            window.localStorage.getItem(window.localStorage.key(i))
+        );
+        document.querySelector(`div[data-dish=${obj.keyword}`).
             style.border = `2px solid tomato`;
     }
 
