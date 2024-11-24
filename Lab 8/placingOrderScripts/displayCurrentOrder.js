@@ -18,5 +18,4 @@
 
     changeVisibility(); 
     updatePlacingOrderForm();
-    fillSelectedCategories();
 })();

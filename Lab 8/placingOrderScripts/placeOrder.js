@@ -22,28 +22,15 @@ async function deleteAllOrdersOnServer() {
         });
 }
 
-function fillSelectedCategories() {
-    selectedCategories["soup"] = false;
-    selectedCategories["main"] = false;
-    selectedCategories["salad"] = false;
-    selectedCategories["drink"] = false;
-    selectedCategories["dessert"] = false;
-
-
+function verifyOrder() {
+    let obj = {};
     for (let i = 0; i < window.localStorage.length; i++) {
-        if (window.localStorage.key(i) == "main-course") {
-            selectedCategories["main"] = true; 
-        } else {
-            selectedCategories[window.localStorage.key(i)] = true;
-        }
+        obj[window.localStorage.key(i)] = true;
     }
-}
-
-function verifyOrder () {
 
     let tempCheck = false;
-    Object.keys(selectedCategories).forEach(function(currentValue) {
-        if (selectedCategories[currentValue]) {
+    Object.keys(obj).forEach(function(currentValue) {
+        if (obj[currentValue]) {
             tempCheck = true;
             return;
         }
@@ -52,30 +39,30 @@ function verifyOrder () {
         return "Ничего не выбрано. Выберите блюда для заказа";
     }
 
-    if (selectedCategories["soup"] &&
-        !(selectedCategories["main"] ||
-        selectedCategories["salad"])) {
+    if (obj["soup"] &&
+        !(obj["main-course"] ||
+            obj["salad"])) {
         return "Выберите главное блюдо/салат/стартер";
     }
-    if (selectedCategories["salad"] &&
-        !(selectedCategories["soup"] ||
-        selectedCategories["main"])) {
+    if (obj["salad"] &&
+        !(obj["soup"] ||
+            obj["main-course"])) {
         return "Выберите суп или главное блюдо";
     } 
-    if ((selectedCategories["drink"] || selectedCategories["dessert"]) &&
-        !(selectedCategories["main"] || 
-            selectedCategories["soup"] || 
-            selectedCategories["salad"])) {
+    if ((obj["drink"] || obj["dessert"]) &&
+        !(obj["main-course"] || 
+            obj["soup"] || 
+            obj["salad"])) {
         return "Выберите главное блюдо";
     }
 
-    if (!selectedCategories["drink"]) {
+    if (!obj["drink"]) {
         return "Выберите напиток";
     }
           
 
     return "";
-}
+}  
 
 function prepareFormForPost(form) {
     const formData = new FormData(event.target);

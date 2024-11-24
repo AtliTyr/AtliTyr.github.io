@@ -52,15 +52,19 @@ function updatePlacingOrderForm() {
             }
         });
 
+        let total = 0;
+
         for (let obj of orderArray) {
             document.querySelectorAll(".updatable_info").
                 forEach(function(currentValue) {
                     if (currentValue.dataset.cat === obj.category) {
                         currentValue.
                             innerHTML = `${obj.name} ${obj.price} ₽`;
+                        total += +obj.price;
                     }
                 });
         }
+        document.querySelector(`p[data-cat="none"]`).innerHTML = `${total} ₽`;
     }
 
 }
@@ -81,8 +85,6 @@ function deleteProcess() {
     window.localStorage.removeItem(chosenMeal.category);
 
     changeVisibility();
-
-    fillSelectedCategories();
 
     deleteFromOrderArray(event.target.parentNode.dataset.dish);
 

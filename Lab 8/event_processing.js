@@ -39,7 +39,7 @@ function checkVisibility() {
 function updateOrderInfo() {
     let total = 0;
 
-    let sum = document.querySelector(".placingOrder .font-reg-sets");
+    let sum = document.querySelector(".sum");
 
     for (let i = 0; i < window.localStorage.length; i++) {
         let ordPrice = searchByID(
