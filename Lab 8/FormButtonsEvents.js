@@ -39,13 +39,7 @@ function fillSelectedCategories() {
 }
 
 
-function verifyOrder () {
-
-    /*console.dir(selectedCategories["soup"]);
-    console.dir(selectedCategories["main"]);
-    console.dir(selectedCategories["salad"]);
-    console.dir(selectedCategories["drink"]);
-    console.dir(selectedCategories["dessert"]);*/
+/*function verifyOrder () {
 
     let tempCheck = false;
     Object.keys(selectedCategories).forEach(function(currentValue) {
@@ -86,6 +80,50 @@ function verifyOrder () {
           
 
     return true;
+} */
+
+function verifyOrder () {
+
+    /*console.dir(selectedCategories["soup"]);
+    console.dir(selectedCategories["main"]);
+    console.dir(selectedCategories["salad"]);
+    console.dir(selectedCategories["drink"]);
+    console.dir(selectedCategories["dessert"]);*/
+
+    let tempCheck = false;
+    Object.keys(selectedCategories).forEach(function(currentValue) {
+        if (selectedCategories[currentValue]) {
+            tempCheck = true;
+            return;
+        }
+    });
+    if (tempCheck == false) {
+        return "Ничего не выбрано. Выберите блюда для заказа";
+    }
+
+    if (selectedCategories["soup"] &&
+        !(selectedCategories["main"] ||
+        selectedCategories["salad"])) {
+        return "Выберите главное блюдо/салат/стартер";
+    }
+    if (selectedCategories["salad"] &&
+        !(selectedCategories["soup"] ||
+        selectedCategories["main"])) {
+        return "Выберите суп или главное блюдо";
+    } 
+    if ((selectedCategories["drink"] || selectedCategories["dessert"]) &&
+        !(selectedCategories["main"] || 
+            selectedCategories["soup"] || 
+            selectedCategories["salad"])) {
+        return "Выберите главное блюдо";
+    }
+
+    if (!selectedCategories["drink"]) {
+        return "Выберите напиток";
+    }
+          
+
+    return "";
 }
 
 let elem = document.getElementsByClassName("submit_button").item(0);
@@ -95,11 +133,11 @@ elem.addEventListener("click", function(event) {
     fillSelectedCategories();
     let res = verifyOrder();
 
-    if (res == false) {
+    if (res != "") {
         event.preventDefault();
     
         const notificationMessage = document.querySelector('.notification p');
-        notificationMessage.innerHTML = msg;
+        notificationMessage.innerHTML = res;
     
         const notification = document.getElementById('notification');
         notification.style.display = 'block'; // Показываем уведомление
