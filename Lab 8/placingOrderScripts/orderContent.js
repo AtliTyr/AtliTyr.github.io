@@ -35,8 +35,7 @@ async function loadOrder() {
             let url = `${mainUrl}/dishes/${id}`;
     
             const requestOptions = {
-                method: "GET",
-                redirect: "follow"
+                method: "GET"
             };
             
             fetch(`${url}?api_key=${api_key}`, requestOptions)
@@ -47,7 +46,6 @@ async function loadOrder() {
                     return response.json();
                 })
                 .then(data => {
-                    //console.log('Данные:', data);
                     orderArray.push(data);
                     if (i + 1 == window.localStorage.length) {
                         resolve(orderArray);

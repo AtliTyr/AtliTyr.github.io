@@ -62,7 +62,7 @@ function verifyOrder() {
           
 
     return "";
-}  
+}
 
 function prepareFormForPost(form) {
     const formData = new FormData(event.target);
