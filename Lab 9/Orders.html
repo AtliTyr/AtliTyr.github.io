@@ -23,9 +23,11 @@
                 <ul>
                     <li><a href="./index.html">О нас</a></li>
                     <li><a href="./makeOrder.html">Собрать ланч</a></li>
-                    <li><a href="./placingOrder.html">Оформить заказ</a></li>
+                    <li><a href="./placingOrder.html" id="checkBeforeChangingLocationRequired">Оформить заказ</a></li>
                     <li><a class="active" href="./Orders.html">Заказы</a></li>
                     <li><a href="#footer">Контакты</a></li>
+
+                    <script src="validateChangingLocation.js"></script>
                 </ul>
             </nav>
         </header>
@@ -80,6 +82,48 @@
                     <div class="modal-body font-reg-sets">
                         <div class="date-info">
                             <p class="meta-info">Дата оформления</p>
+                            <p class="dynamic_info"></p>
+                        </div>
+                        <h4 class="font-form-headers formHeaders">Доставка</h4>
+                        <div class="delivery-info">
+                            <div class="full_name">
+                                <p class="meta-info">Имя получателя</p>
+                                <p class="dynamic_info"></p>
+                            </div>
+                            <div class="delivery_address">
+                                <p class="meta-info">Адрес доставки</p>
+                                <p class="dynamic_info"></p>
+                            </div>
+                            <div class="delivery_time">
+                                <p class="meta-info">Время доставки</p>
+                                <p class="dynamic_info"></p>
+                            </div>
+                            <div class="phone_number">
+                                <p class="meta-info">Телефон</p>
+                                <p class="dynamic_info"></p>
+                            </div>
+                            <div class="email">
+                                <p class="meta-info">Email</p>
+                                <p class="dynamic_info"></p>
+                            </div>  
+                        </div>
+                        <h4 class="font-form-headers formHeaders">Комментарий</h4>
+                        <div class="comment-info">
+                            <p></p>
+                        </div>
+                        <h4 class="font-form-headers formHeaders">Состав заказа</h4>
+                        <div class="order-content-info">
+                            
+                        </div>
+                        <div class="order-total-sum-info">
+                            <p class="font-form-headers">Стоимость: </p>
+                            <p class="font-form-headers" id="total-sum"></p>
+                        </div>
+                    </div> 
+
+                    <!--<div class="modal-body font-reg-sets">
+                        <div class="date-info">
+                            <p class="meta-info">Дата оформления</p>
                         </div>
                         <h4 class="font-form-headers formHeaders">Доставка</h4>
                         <div class="delivery-info">
@@ -108,7 +152,7 @@
                         <div class="order-total-sum-info">
                             <p class="font-form-headers">Стоимость: </p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="modal-footer font-reg-sets">
                     <button type="button" class="btn btn-secondary regularModalButton" data-dismiss="modal">ОК</button>
                     </div>

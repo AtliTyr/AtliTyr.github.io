@@ -54,38 +54,14 @@
     margin-bottom: 0;
 }
 
-/*.delivery-info div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}*/
-/*
-.date-info {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.order-content-info div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.order-content-info {
-    margin-bottom: 1rem;
-}*/
-
 .order-content-info p {
     margin-bottom: 0;
 }
-/*
-.order-total-sum-info {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+
+p#total-sum {
+    margin-left: 0.3rem;
 }
-*/
+
 .dynamic_info {
     margin-left: auto;
 }

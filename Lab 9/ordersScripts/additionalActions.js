@@ -20,45 +20,33 @@ function deleteOrderEvent() {
 function fillOrderInfo() {
     let ord = orderArray[chosenOrderNumber - 1];
     
-    let dateElement = document.createElement("p");
-    dateElement.className = "dynamic_info";
-    dateElement.innerHTML = formateDate(new Date(ord["created_at"]));
-    document.querySelector(".date-info").append(dateElement);
 
-    {
-        let name = document.createElement("p");
-        name.className = "dynamic_info";
-        name.innerHTML = `${ord["full_name"]}`;
-        document.querySelector(".delivery-info .full_name").append(name);
-        let address = document.createElement("p");
-        address.className = "dynamic_info";
-        address.innerHTML = ord["delivery_address"];
-        document.querySelector(".delivery-info .delivery_address").
-            append(address);
-        let deliveryTime = document.createElement("p");
-        deliveryTime.className = "dynamic_info";
-        deliveryTime.innerHTML = ord["delivery_time"].substring(0, 5);  
-        document.querySelector(".delivery-info .delivery_time").
-            append(deliveryTime);
-        let phoneNumber = document.createElement("p");
-        phoneNumber.className = "dynamic_info";
-        phoneNumber.innerHTML = ord["phone"];
-        document.querySelector(".delivery-info .phone_number").
-            append(phoneNumber);
-        let email = document.createElement("p");
-        email.className = "dynamic_info";
-        email.innerHTML = ord["email"];
-        document.querySelector(".delivery-info .email").append(email);
-    }
+    // Время создания заказа
+    document.querySelector(".date-info .dynamic_info").
+        innerHTML = formateDate(new Date(ord["created_at"]));
 
-    let comment = document.createElement("p");
+    // Информация о заказчике и данные доставки
+    document.querySelector(".delivery-info .full_name .dynamic_info").
+        innerHTML = `${ord["full_name"]}`;
+    document.querySelector(
+        ".delivery-info .delivery_address .dynamic_info").
+        innerHTML = ord["delivery_address"]; 
+    document.querySelector(".delivery-info .delivery_time .dynamic_info").
+        innerHTML = ord["delivery_time"].substring(0, 5); 
+    document.querySelector(".delivery-info .phone_number .dynamic_info").
+        innerHTML = ord["phone"];
+    document.querySelector(".delivery-info .email .dynamic_info").
+        innerHTML = ord["email"];
+
+    // Комментарий к заказу
     if (ord["comment"] != null)
-        comment.innerHTML = ord["comment"];
+        document.querySelector(".comment-info p").
+            innerHTML = ord["comment"];
     else 
-        comment.innerHTML = "Нет комментария";
-    document.querySelector(".comment-info").append(comment);
+        document.querySelector(".comment-info p").
+            innerHTML = "Нет комментария";
 
-
+    // Состав заказа
     let total = 0;
     let contentString = [];
 
@@ -74,6 +62,11 @@ function fillOrderInfo() {
             total += +dishes[ord[key] - 1]["price"];
         }   
     });
+
+    while (document.querySelector(".order-content-info").
+        childElementCount != 0) {
+        document.querySelector(".order-content-info").children.item(0).remove();
+    }
 
     for (let i = 0; i < contentString.length; i++) {
         let dishDiv = document.createElement("div");
@@ -109,11 +102,8 @@ function fillOrderInfo() {
         document.querySelector(".order-content-info").append(dishDiv);
     }
 
-    let totalPrice = document.createElement("p");
-    totalPrice.innerHTML = ` ${total}₽`;
-    totalPrice.classList.add("font-form-headers");
-    totalPrice.style.marginLeft = "0.3rem";
-    document.querySelector(".order-total-sum-info").append(totalPrice);
+    // Сумма заказа
+    document.querySelector("p#total-sum").innerHTML = `${total}₽`;
 }
 
 function selectChosenOrderNumber(event) {
