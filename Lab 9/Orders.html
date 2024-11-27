@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shantell%20Sans">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="orders.css">
+</head>
+<body>
+    <div class="main">
+        <header class="font-h-sets">
+            <h1>Food Construct</h1>
+            
+            <nav class="font-reg-sets">
+                <ul>
+                    <li><a href="./index.html">О нас</a></li>
+                    <li><a href="./makeOrder.html">Собрать ланч</a></li>
+                    <li><a href="./placingOrder.html">Оформить заказ</a></li>
+                    <li><a class="active" href="./Orders.html">Заказы</a></li>
+                    <li><a href="#footer">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h1 class="font-h-sets">История заказов</h1>
+
+            <table class="table table-hover font-reg-sets listOfOrders">
+            <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Дата оформления</th>
+                    <th scope="col">Состав заказа</th>
+                    <th scope="col">Стоимость</th>
+                    <th scope="col">Время доставки</th>
+                    <th scope="col">Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+
+            <div class="modal fade" id="deleteOrder" tabindex="-1" role="dialog" aria-labelledby="deleteOrd" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title font-h-sets" id="deleteOrd">Удаление заказа</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body font-reg-sets">
+                    Вы уверены, что хотите удалить заказ?
+                    </div>
+                    <div class="modal-footer font-reg-sets">
+                    <button type="button" class="btn btn-secondary regularModalButton" data-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary confirmDeleteButton">Да</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="checkOrderInfo" tabindex="-1" role="dialog" aria-labelledby="checkOrd" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title font-reg-sets font-form-headers" id="checkOrd">Просмотр заказа</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body font-reg-sets">
+                        <div class="date-info">
+                            <p class="meta-info">Дата оформления</p>
+                        </div>
+                        <h4 class="font-form-headers formHeaders">Доставка</h4>
+                        <div class="delivery-info">
+                            <div class="full_name">
+                                <p class="meta-info">Имя получателя</p>
+                            </div>
+                            <div class="delivery_address">
+                                <p class="meta-info">Адрес доставки</p>
+                            </div>
+                            <div class="delivery_time">
+                                <p class="meta-info">Время доставки</p>
+                            </div>
+                            <div class="phone_number">
+                                <p class="meta-info">Телефон</p>
+                            </div>
+                            <div class="email">
+                                <p class="meta-info">Email</p>
+                            </div>  
+                        </div>
+                        <h4 class="font-form-headers formHeaders">Комментарий</h4>
+                        <div class="comment-info">
+                        </div>
+                        <h4 class="font-form-headers formHeaders">Состав заказа</h4>
+                        <div class="order-content-info">
+                        </div>
+                        <div class="order-total-sum-info">
+                            <p class="font-form-headers">Стоимость: </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer font-reg-sets">
+                    <button type="button" class="btn btn-secondary regularModalButton" data-dismiss="modal">ОК</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+            <!-- jQuery and Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+            <script src="ordersScripts/ordersLoading.js"></script>
+            <script src="ordersScripts/displayAllOrders.js"></script>
+            <script src="ordersScripts/additionalActions.js"></script>
+        </main>
+
+        <footer id="footer" class="font-h-sets">
+            <p>Позвонить нам  +7-000-000-00-00</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

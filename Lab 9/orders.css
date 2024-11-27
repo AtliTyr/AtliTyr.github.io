@@ -1,0 +1,99 @@
+.regularModalButton {
+    background-color: #f1eee9;
+    border: 0px;
+    color: black;
+    width: 8rem;
+    border-radius: 0.58rem;
+}
+
+.confirmDeleteButton {
+    background-color: darkred;
+    border: none;
+    border-radius: 0.58rem;
+    width: 5rem;
+}
+
+.confirmDeleteButton:focus {
+    background-color: red !important;
+    border: none !important;
+}
+
+.confirmDeleteButton:hover {
+    background-color: red;
+}
+
+.delivery-info div p{
+    display:inline-block;
+    margin-bottom: 0;
+}
+
+.meta-info {
+    width: 380px;
+}
+
+.delivery-info {
+    margin-bottom: 1rem;
+}
+
+.date-info p {
+    display:inline-block;
+    margin-bottom: 0;
+}
+
+.order-content-info p {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.order-content-info {
+    margin-bottom: 1rem;
+}
+
+.order-total-sum-info p {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+/*.delivery-info div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}*/
+/*
+.date-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.order-content-info div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.order-content-info {
+    margin-bottom: 1rem;
+}*/
+
+.order-content-info p {
+    margin-bottom: 0;
+}
+/*
+.order-total-sum-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+*/
+.dynamic_info {
+    margin-left: auto;
+}
+
+.formHeaders {
+    margin-bottom: 1rem;
+}
+
+.font-form-headers {
+    font-weight: bold   ;
+}

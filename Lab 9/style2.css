@@ -59,7 +59,7 @@ header li {
 }
 
 header a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: black;
 }
 
@@ -464,6 +464,10 @@ contact-form form {
     font-family: "Pacifico";
     font-weight: 400;
     font-size:1.9rem;
+}
+
+.listOfOrders {
+    margin-top: 4rem;
 }
 
 @media only screen and (max-width: 800px) {
