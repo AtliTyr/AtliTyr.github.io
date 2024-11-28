@@ -1,3 +1,5 @@
+
+// Компаратор JSON Объектов по свойству "created_at"
 function orderDateCompare(ord1, ord2) {
     let firstDate = new Date(ord1["created_at"]).getTime();
     let secondDate = new Date(ord2["created_at"]).getTime();
@@ -6,6 +8,7 @@ function orderDateCompare(ord1, ord2) {
             0;
 }
 
+// Форматирует дату до удобного формата DD.MM.YY Hours:Mins
 function formateDate(time) {
     let mins = (time.getMinutes() < 10) ? `0${time.getMinutes()}` :
         time.getMinutes(); 
@@ -16,6 +19,7 @@ function formateDate(time) {
     return `${day}.${month}.${year} ${hoursAndMins}`;
 }
 
+// Заполнение таблицы с заказами
 (async () => {
     
     await AllOrdersLoadingPromise;
@@ -80,6 +84,9 @@ function formateDate(time) {
             newOrd.append(deliveryType);
         }
 
+
+        // Создание иконок, вызывающих модальные окна для взаимодействия с 
+        // заказом
         {
             let additionalActions = document.createElement("td");
             
@@ -94,6 +101,8 @@ function formateDate(time) {
             pencil.className = `bi bi-pencil`;
             pencil.style.paddingRight = "1rem";
             pencil.style.cursor = "pointer";
+            pencil.dataset.toggle = "modal";
+            pencil.dataset.target = "#editOrderInfo";
 
             let trash = document.createElement("i");
             trash.className = `bi bi-trash`;
@@ -107,6 +116,7 @@ function formateDate(time) {
             });
             pencil.addEventListener("click", function(event) {
                 selectChosenOrderNumber(event);
+                fillEditableOrderInfo();
             });
             eye.addEventListener("click", function(event) {
                 selectChosenOrderNumber(event);

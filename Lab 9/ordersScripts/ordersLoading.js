@@ -8,6 +8,7 @@ let AllOrdersLoadingPromise;
 let AllDishesLoadingPromise;
 
 async function loadOrder() {    
+    // Подгрузка всех оформленных заказов
     AllOrdersLoadingPromise = new Promise((resolve, reject) => {
         let url = `${mainUrl}/orders`;
 
@@ -30,6 +31,7 @@ async function loadOrder() {
                 reject(error);
             });
     });
+    // Подгрузка всех блюд в dishes
     AllDishesLoadingPromise = new Promise((resolve, reject) => {
         let url = `${mainUrl}/dishes`;
 

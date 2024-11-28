@@ -82,29 +82,29 @@
                     <div class="modal-body font-reg-sets">
                         <div class="date-info">
                             <p class="meta-info">Дата оформления</p>
-                            <p class="dynamic_info"></p>
+                            <p class="info"></p>
                         </div>
                         <h4 class="font-form-headers formHeaders">Доставка</h4>
                         <div class="delivery-info">
                             <div class="full_name">
                                 <p class="meta-info">Имя получателя</p>
-                                <p class="dynamic_info"></p>
+                                <p class="info"></p>
                             </div>
                             <div class="delivery_address">
                                 <p class="meta-info">Адрес доставки</p>
-                                <p class="dynamic_info"></p>
+                                <p class="info"></p>
                             </div>
                             <div class="delivery_time">
                                 <p class="meta-info">Время доставки</p>
-                                <p class="dynamic_info"></p>
+                                <p class="info"></p>
                             </div>
                             <div class="phone_number">
                                 <p class="meta-info">Телефон</p>
-                                <p class="dynamic_info"></p>
+                                <p class="info"></p>
                             </div>
                             <div class="email">
                                 <p class="meta-info">Email</p>
-                                <p class="dynamic_info"></p>
+                                <p class="info"></p>
                             </div>  
                         </div>
                         <h4 class="font-form-headers formHeaders">Комментарий</h4>
@@ -117,45 +117,73 @@
                         </div>
                         <div class="order-total-sum-info">
                             <p class="font-form-headers">Стоимость: </p>
-                            <p class="font-form-headers" id="total-sum"></p>
+                            <p class="font-form-headers total-for-order"></p>
                         </div>
                     </div> 
 
-                    <!--<div class="modal-body font-reg-sets">
+                    <div class="modal-footer font-reg-sets">
+                    <button type="button" class="btn btn-secondary regularModalButton" data-dismiss="modal">ОК</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="editOrderInfo" tabindex="-1" role="dialog" aria-labelledby="editOrd" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                <form action="">
+                    <div class="modal-header">
+                    <h5 class="modal-title font-reg-sets font-form-headers" id="editOrd">Просмотр заказа</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body font-reg-sets">
                         <div class="date-info">
                             <p class="meta-info">Дата оформления</p>
+                            <p class="dynamic_info"></p>
                         </div>
                         <h4 class="font-form-headers formHeaders">Доставка</h4>
                         <div class="delivery-info">
                             <div class="full_name">
-                                <p class="meta-info">Имя получателя</p>
+                                <label for="full_name" class="meta-info">Имя получателя</label>
+                                <input type="text" id="full_name" class="font-form-input" placeholder="Ivanov Ivan" name="full_name" required>
                             </div>
                             <div class="delivery_address">
-                                <p class="meta-info">Адрес доставки</p>
+                                <label for="delivery_address" class="meta-info">Адрес доставки</label>
+                                <input type="text" id="delivery_address" class="font-form-input" name="delivery_address" required>
                             </div>
                             <div class="delivery_time">
-                                <p class="meta-info">Время доставки</p>
+                                <label for="delivery_time" class="meta-info">Время доставки</label>
+                                <input type="time" id="delivery_time" class="font-form-input" name="delivery_time" min="07:00" max="23:00" step="300" required>
                             </div>
                             <div class="phone_number">
-                                <p class="meta-info">Телефон</p>
+                                <label for="phone" class="meta-info">Номер телефона: </label>
+                                <input type="tel" id="phone" class="font-form-input" name="phone" placeholder="+7 (999) 999-99-99" required>
                             </div>
                             <div class="email">
-                                <p class="meta-info">Email</p>
+                                <label for="email" class="meta-info">Email</label>
+                                <input type="text" id="email" class="font-form-input" name="email" placeholder="example@mail.ru" required>
                             </div>  
                         </div>
                         <h4 class="font-form-headers formHeaders">Комментарий</h4>
                         <div class="comment-info">
+                            <textarea name="comment" id="comment" placeholder="#Нет комментария#"></textarea>
                         </div>
                         <h4 class="font-form-headers formHeaders">Состав заказа</h4>
                         <div class="order-content-info">
+                            
                         </div>
                         <div class="order-total-sum-info">
                             <p class="font-form-headers">Стоимость: </p>
+                            <p class="font-form-headers total-for-order"></p>
                         </div>
-                    </div> -->
+                    </div> 
                     <div class="modal-footer font-reg-sets">
-                    <button type="button" class="btn btn-secondary regularModalButton" data-dismiss="modal">ОК</button>
+                    <button type="button" class="btn btn-secondary regularModalButton" data-dismiss="modal">Отмена</button>
+                    <button type="submit" class="btn btn-primary updateOrderInfo">Сохранить</button>
                     </div>
+                </form>
                 </div>
                 </div>
             </div>
@@ -166,10 +194,11 @@
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+            
             <script src="ordersScripts/ordersLoading.js"></script>
             <script src="ordersScripts/displayAllOrders.js"></script>
             <script src="ordersScripts/additionalActions.js"></script>
+            <script src="ordersScripts/orderInfoUpdate.js"></script>
         </main>
 
         <footer id="footer" class="font-h-sets">
