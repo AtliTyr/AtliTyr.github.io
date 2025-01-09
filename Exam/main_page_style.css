@@ -1,0 +1,7 @@
+
+
+@media (max-width: 768px) {
+    form[role="search"] {
+      width: 100% !important;
+    }
+}
