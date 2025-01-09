@@ -1,7 +1,17 @@
+footer {
+    bottom: 0%;
+    position: fixed;
+    width: 100%;
+}
 
+footer p {
+    text-align: center;
+    padding: 1.2rem;
+    margin: 0;
+}
 
 @media (max-width: 768px) {
     form[role="search"] {
-      width: 100% !important;
+        width: 100% !important;
     }
 }
