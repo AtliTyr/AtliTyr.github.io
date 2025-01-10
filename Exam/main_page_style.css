@@ -33,9 +33,12 @@
 }
 
 .product-card > p {
+    word-break: break-all;
+
     margin: 0;
     font-size: x-large;
     text-align: center;
+    text-wrap: wrap;
 }
 
 .product-card button {
@@ -58,6 +61,16 @@
     font-size: large;
 }
 
+.product-old-price {
+    color: red;
+    text-decoration: line-through;
+}
+
+.product-old-price-discount {
+    color: red;
+    font-weight: bold;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -69,6 +82,10 @@ main {
 }
 
 footer {
+    position: sticky;
+    bottom: 0%;
+
+    opacity: 90%;
     color: black;
     padding: 0.1rem 0;
     padding-left: 2rem;
@@ -85,19 +102,19 @@ footer p {
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1080px) {
     .products {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 904px) {
     .products {
         grid-template-columns: 1fr 1fr;
     }
 }
 
-@media (max-width: 568px) {
+@media (max-width: 608px) {
     .products {
         grid-template-columns: 1fr;
     }
