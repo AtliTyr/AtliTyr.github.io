@@ -6,6 +6,16 @@ let mainUrl = "https://edu.std-900.ist.mospolytech.ru";
 let loadProductsPromise;
 
 let productArray = [];
+let filterCategory = [];
+
+function parseProductsCategory() {
+    for (let product of productArray) {
+        if (filterCategory.includes(product["main_category"])) {
+            continue;
+        }
+        filterCategory.push(product["main_category"]);
+    }
+}  
 
 function loadProducts() {
     let specificUrl = "/exam-2024-1/api/goods";
@@ -20,6 +30,9 @@ function loadProducts() {
             })
             .then(data => { 
                 productArray = data;
+
+                parseProductsCategory();
+
                 let displayScript = document.createElement("script");
                 displayScript.src = "mainPageDisplayProductsScript.js";
                 document.getElementsByTagName("main").

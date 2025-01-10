@@ -5,11 +5,12 @@ let filterForm = document.querySelector(".sidebar > form");
 let onlyDiscountProducts;
 let priceFrom;
 let priceTo;
+let chosenCategories = [];
 
 filterForm.
     addEventListener("submit", function() {
+        chosenCategories = [];
         for (let obj of filterForm) {
-            //console.dir(obj.id);
             switch (obj.id) {
             case "only-discount-products":
                 onlyDiscountProducts = obj.checked;
@@ -23,6 +24,22 @@ filterForm.
                 priceTo = obj.value; 
                 if (priceTo == "")
                     priceTo = undefined; 
+                break;
+            case "home & kitchen":
+                if (obj.checked)
+                    chosenCategories.push("home & kitchen"); 
+                break;
+            case "tv, audio & cameras":
+                if (obj.checked)
+                    chosenCategories.push("tv, audio & cameras"); 
+                break;
+            case "sports & fitness":
+                if (obj.checked)
+                    chosenCategories.push("sports & fitness"); 
+                break;
+            case "beauty & health":
+                if (obj.checked)
+                    chosenCategories.push("beauty & health"); 
                 break;
             }
         }

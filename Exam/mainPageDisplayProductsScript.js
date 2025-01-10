@@ -43,6 +43,11 @@ function displayMainContent() {
             continue;
         }
 
+        if (chosenCategories.length != 0) {
+            if (!chosenCategories.includes(object["main_category"]))
+                continue;
+        }
+
         let newProduct = document.createElement("div");
         newProduct.className = "product-card";
     
@@ -113,4 +118,27 @@ function displayMainContent() {
     }
 }
 
+function displayFilterCategory() {
+    for (let category of filterCategory) {
+        let newCategory = document.createElement("div");
+        newCategory.className = "d-inline-flex mb-3";
+
+        let checkboxCategory = document.createElement("input");
+        checkboxCategory.type = "checkbox";
+        checkboxCategory.id = category;
+
+        let labelCategory = document.createElement("label");
+        labelCategory.for = category;
+        labelCategory.className = "mx-2";
+        labelCategory.innerHTML = category;
+
+        newCategory.append(checkboxCategory);
+        newCategory.append(labelCategory);
+
+        document.querySelector(".filter-category > div").append(newCategory);
+
+    }
+}
+
 displayMainContent();
+displayFilterCategory();
