@@ -1,7 +1,7 @@
 "use strict";
 
 let apiKey = "api_key=9de0c429-ab17-4d69-991b-2a5d2318c706";
-let mainUrl = "http://api.std-900.ist.mospolytech.ru";
+let mainUrl = "https://edu.std-900.ist.mospolytech.ru";
 
 let loadProductsPromise;
 
