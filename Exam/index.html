@@ -51,7 +51,6 @@
                             </li>
                         </ul>
                     </div>
-                    
                 </div>
             </div>
         </nav>
@@ -59,64 +58,52 @@
     <main class="d-flex flex-column">
         <div class="container-fluid p-0 flex-fill d-flex">
             <div class="row m-0">
-                <div class="col-4 col-sm-4 col-lg-2 sidebar bg-body-tertiary d-flex flex-column px-4">
-                    <div class="filter-category">
-                        <p class="fs-5 mt-4">Категории</p>
-                        <div class="d-flex flex-column">
-                            <div class="d-inline-flex">
-                                <input type="checkbox" name="" id="category-1">
-                                <label for="category-1">Категория 1</label>
-                            </div>
-                            <div class="d-inline-flex">
-                                <input type="checkbox" name="" id="category-2">
-                                <label for="category-2">Категория 2</label>
-                            </div>
-                            <div class="d-inline-flex">
-                                <input type="checkbox" name="" id="category-3">
-                                <label for="category-3">Категория 3</label>
-                            </div>
-                            <div class="d-inline-flex">
-                                <input type="checkbox" name="" id="category-4">
-                                <label for="category-4">Категория 4</label>
-                            </div>
-                            <div class="d-inline-flex">
-                                <input type="checkbox" name="" id="category-5">
-                                <label for="category-5">Категория 5</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filter-price mb-4">
-                        <p class="fs-5 mt-3 mb-0">Стоимость</p>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-12 col-sm-6 p-0">
-                                    <label for="filter-price-from" class="p-1">От</label>
-                                    <input type="number" name="" id="filter-price-from" class="w-75 rounded-pill text-center" min="0" value="100">
-                                </div>
-                                <div class="col-12 col-sm-6 p-0">
-                                    <label for="filter-price-to" class="p-1">До</label>
-                                    <input type="number" name="" id="filter-price-to" class="w-75 rounded-pill text-center" min="0" value="5000">
+                <div class="col-4 col-sm-4 col-md-3 col-lg-2 sidebar bg-body-tertiary d-flex flex-column px-3">
+                    <form>
+                        <div class="filter-category">
+                            <p class="fs-5 mt-4">Категории</p>
+                            <div class="d-flex flex-column">
+                                <div class="d-inline-flex">
+                                    <input type="checkbox" id="category-1">
+                                    <label for="category-1">Категория 1</label>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="filter-only-discount-products mb-4 d-inline-flex">
-                        <input type="checkbox" id="only-discount-products" class="mx-2">
-                        <label for="only-discount-products">Только товары со скидками</label>
-                    </div>
-                    <div class="filter-button-confirm mx-1">
-                        <button type="button" class="btn btn-secondary w-100 rounded-pill"> Применить </button>
-                    </div>
+                        <div class="filter-price mb-4">
+                            <p class="fs-5 mt-3 mb-0">Стоимость</p>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 p-0">
+                                        <label for="filter-price-from" class="p-1">От</label>
+                                        <input type="number" name="" id="filter-price-from" class="w-75 rounded-pill text-center" min="0" value="100">
+                                    </div>
+                                    <div class="col-12 col-sm-6 p-0">
+                                        <label for="filter-price-to" class="p-1">До</label>
+                                        <input type="number" name="" id="filter-price-to" class="w-75 rounded-pill text-center" min="0" value="5000">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-only-discount-products mb-4 d-inline-flex">
+                            <input type="checkbox" id="only-discount-products" class="mx-2">
+                            <label for="only-discount-products">Только товары со скидками</label>
+                        </div>
+                        <div class="filter-button-confirm mx-1">
+                            <button type="submit" class="btn btn-secondary w-100 rounded-pill"> Применить </button>
+                        </div>
+                    </form>
                 </div>
-                <div class="col-8 col-sm-8 col-lg-10 main-content px-3 mb-5 flex-fill">
+                <div class="col-8 col-sm-8 col-md-9 col-lg-10 main-content px-3 mb-5 flex-fill">
                     <div class="header-of-catalog p-3">
                         <p class="fs-2">Каталог</p>
                     </div>
-                    <div class="products"></div>
-                    <script src="mainPageLoadingProductsScript.js"></script>
+                    <div class="products"></div>   
                 </div>
             </div>
         </div>
+        <script src="mainPageFilterScript.js"></script>
+        <script src="mainPageSearchBarScript.js"></script>
+        <script src="mainPageLoadingProductsScript.js"></script>
     </main>
     <footer class="bg-body-tertiary d-sm-flex justify-content-between">
         <p class="fs-5 m-auto"> 

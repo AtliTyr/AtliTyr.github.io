@@ -10,7 +10,7 @@ let productArray = [];
 function loadProducts() {
     let specificUrl = "/exam-2024-1/api/goods";
     let fullUrl = `${mainUrl}${specificUrl}?${apiKey}`;
-    loadProductsPromise = new Promise(async (resolve, reject) => {
+    loadProductsPromise = new Promise(async () => {
         await fetch(fullUrl)
             .then(response => {
                 if (!response.ok) {
@@ -22,7 +22,7 @@ function loadProducts() {
                 productArray = data;
                 let displayScript = document.createElement("script");
                 displayScript.src = "mainPageDisplayProductsScript.js";
-                document.getElementsByClassName("main-content").
+                document.getElementsByTagName("main").
                     item(0).append(displayScript);
             })
             .catch(error => {
