@@ -34,7 +34,7 @@ function loadProducts() {
                 parseProductsCategory();
 
                 let displayScript = document.createElement("script");
-                displayScript.src = "mainPageDisplayProductsScript.js";
+                displayScript.src = "mainPage/mainPageDisplayProductsScript.js";
                 document.getElementsByTagName("main").
                     item(0).append(displayScript);
             })

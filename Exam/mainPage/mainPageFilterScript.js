@@ -8,7 +8,8 @@ let priceTo;
 let chosenCategories = [];
 
 filterForm.
-    addEventListener("submit", function() {
+    addEventListener("submit", function(event) {
+        event.preventDefault();
         chosenCategories = [];
         for (let obj of filterForm) {
             switch (obj.id) {

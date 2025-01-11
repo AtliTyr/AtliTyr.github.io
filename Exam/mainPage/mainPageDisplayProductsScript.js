@@ -50,7 +50,8 @@ function displayMainContent() {
 
         let newProduct = document.createElement("div");
         newProduct.className = "product-card";
-    
+        newProduct.id = `id-${object["id"]}`;
+
         let productImage = document.createElement("img");
         productImage.src = object["image_url"];
     
@@ -106,6 +107,9 @@ function displayMainContent() {
         addButton.type = "button";
         addButton.className = "btn btn-secondary rounded-4 w-100";
         addButton.innerHTML = "Добавить";
+        addButton.addEventListener("click", function(event) {
+            addProduct(event);
+        });
         productAddButton.append(addButton);
     
         newProduct.append(productImage);
