@@ -1,7 +1,8 @@
 function notificationConstructor(notificationMessage) {
     let notification = document.createElement("notification");
     notification.className = 
-        "d-flex justify-content-between p-3 bg-success-subtle";
+        `d-flex justify-content-between p-3 bg-success-subtle 
+            border-bottom border-success`;
     
     let notificationMessageElement = document.createElement("p");
     notificationMessageElement.innerHTML = notificationMessage;
