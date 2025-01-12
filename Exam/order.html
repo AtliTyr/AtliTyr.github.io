@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <header>
+    <header class="border-bottom">
         <nav class="navbar navbar-expand-md bg-body-tertiary">
             <div class="container-fluid p-2">
                 <a class="navbar-brand" href="#">
@@ -24,27 +24,33 @@
                     </svg>
                     Барахолка.ру
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <div>       
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.html">
+                                <a class="nav-link active d-flex flex-row" aria-current="page" href="index.html">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z"/>
                                         <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"/>
                                         <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z"/>
                                     </svg>
+                                    <p class="d-md-none fs-5 mx-3">
+                                        Каталог
+                                    </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link active d-flex flex-row" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                                     </svg>
+                                    <p class="d-md-none fs-5 mx-3">
+                                        Личный кабинет
+                                    </p>
                                 </a>
                             </li>
                         </ul>
@@ -57,18 +63,81 @@
     <main class="d-flex flex-column">
         <div class="p-0 d-flex flex-fill">
             <div class="main-content px-3 mb-5 flex-fill">
-                <div class="header-of-can p-3">
-                    <p class="fs-2">Корзина</p>
+                <div class="header-of-can">
+                    <p class="fs-2"><strong>Корзина</strong></p>
                 </div>
                 <div class="products"></div>   
             </div>
         </div>
+
+        <div class="p-3">
+            <div class="header-of-form">
+                <p class="fs-2"><strong>Оформление заказа</strong></p>
+            </div>
+            <contact-form>
+                <form class="container-sm">
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <div class="d-flex flex-column mb-3">
+                                <label for="name">Имя</label>
+                                <input type="text" id="name" class="" name="full_name" value="Иванов Иван" placeholder="Иванов Иван" required>
+                            </div>
+                            <div class="d-flex flex-column mb-3">
+                                <label for="phone_number">Номер телефона </label>
+                                <input type="tel" id="phone_number" name="phone" value="+74952230523" placeholder="+74952230523" required>
+                            </div>
+                            <div class="d-flex flex-column mb-3">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" name="email" value="example@mospolytech.ru" placeholder="example@mospolytech.ru" required>
+                                <div class="d-inline-flex d-md-flex mt-2 justify-content-start">   
+                                    <input type="checkbox" class="order-2 order-lg-1" id="subscribe" name="subscribe">
+                                    <label for="subscribe" class="order-1 order-lg-2 mx-2">Подписаться на рассылку</label>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column mb-3">
+                                <label for="comment">Комментарий</label>
+                                <textarea name="comment" id="comment" cols="30" rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="d-flex flex-column mb-3">
+                                <label for="address">Адрес доставки</label>
+                                <input type="text" id="address" name="delivery_address" value="ул. Большая Семёновская, 38" placeholder="ул. Большая Семёновская, 38" required>
+                            </div>
+                            <div class="d-flex flex-column mb-3">
+                                <label for="delivery_date">Дата доставки</label>
+                                <input type="date" value="2025-01-12" name="delivery_date" id="delivery_date" required>
+                            </div>
+                            <div class="d-flex flex-column mb-3">
+                                <label for="delivery_interval">Временной интервал доставки</label>
+                                <select name="delivery_interval" id="delivery_interval">
+                                    <option value="08:00-12:00">08:00-12:00</option>
+                                    <option value="12:00-14:00">12:00-14:00</option>
+                                    <option value="14:00-18:00">14:00-18:00</option>
+                                    <option value="18:00-22:00">18:00-22:00</option>
+                                </select>
+                            </div>
+                            <div class="d-flex flex-column mb-3 align-items-center">
+                                <p class="m-0 fs-4 total-count"></p>
+                                <p class="fs-5"><small>(Стоимость доставки 500 &#8381;)</small></p>
+                            </div>
+                            <div class="contact-form-buttons mb-3 d-flex flex-column flex-lg-row justify-content-around">
+                                <button class="my-2 mx-3 rounded-4 bg-white flex-fill" type="reset">Сбросить</button>
+                                <button class="my-2 mx-3 rounded-4 bg-white flex-fill" type="submit">Оформить</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </contact-form>
+        </div>
+
         <script src="orderPage/orderPageLoadingOrderInfo.js"></script>
         <script src="orderPage/orderPageDeleteFromOrder.js"></script>
         <script src="sharedScripts/notificationConstructor.js"></script>
+        <script src="orderPage/orderPagePlaceOrder.js"></script>
     </main>
     
-    <footer class="bg-body-tertiary d-sm-flex justify-content-between">
+    <footer class="bg-body-tertiary d-sm-flex justify-content-between border-top">
         <p class="fs-5 m-auto"> 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-c-circle" viewBox="0 0 16 16">
                 <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512"/>
@@ -79,5 +148,6 @@
             Связаться с нами: 8 800 555 35 35
         </p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

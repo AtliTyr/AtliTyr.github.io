@@ -4,7 +4,7 @@
 
 .products {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr; 
     gap: 20px; 
 }
 
@@ -77,6 +77,20 @@ main {
     flex: 1;
 }
 
+form input,select {
+    height: 2.5rem;
+}
+
+form input[type="checkbox"] {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+label {
+    font-weight: 550;
+    font-size: larger;
+}
+
 footer {
     position: sticky;
     bottom: 0%;
@@ -90,6 +104,15 @@ footer {
 footer p {
     margin: 0;
     padding: 1.5rem;
+}
+
+div#closeNotification {
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.contact-form-buttons button {
+    height: 2.5rem;
 }
 
 @media (max-width: 768px) {

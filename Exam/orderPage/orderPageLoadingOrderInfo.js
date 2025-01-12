@@ -10,24 +10,26 @@ let orderArray = [];
 async function loadOrder() {
     let specificUrl = "/exam-2024-1/api/goods/";
 
-    let idOrderArray = JSON.parse(window.localStorage.getItem("goods"));
+    if (window.localStorage.getItem("goods") != null) {
+        let idOrderArray = JSON.parse(window.localStorage.getItem("goods"));
 
-    for (let id of idOrderArray) {
-        let fullUrl = `${mainUrl}${specificUrl}${id}?${apiKey}`;  
-        await fetch(fullUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Failed to get product info!");
-                }
-                return response.json();
-            })
-            .then(data => {
-                orderArray.push(data);
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', 
-                    error);
-            });
+        for (let id of idOrderArray) {
+            let fullUrl = `${mainUrl}${specificUrl}${id}?${apiKey}`;  
+            await fetch(fullUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to get product info!");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    orderArray.push(data);
+                })
+                .catch(error => {
+                    console.error(
+                        `There was a problem with the fetch operation:`, error);
+                });
+        }
     }
 
     let displayScript = document.createElement("script");

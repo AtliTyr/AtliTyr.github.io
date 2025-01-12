@@ -1,10 +1,29 @@
 function deleteMainContent() {
     document.getElementsByClassName("products").item(0).innerHTML = "";
+    
 }
 
 function displayMainContent() {
     let whereToPutElements = document.
         getElementsByClassName("products").item(0);
+
+    let totalCount = 0;
+    
+    if (orderArray.length == 0) {
+        let emptyCan = document.createElement("p");
+        emptyCan.className = "fs-3";
+        emptyCan.innerHTML = `Корзина пуста. Перейдите в 
+        <a class="text-decoration-none text-success" href="index.html">
+            каталог
+        </a>, чтобы добавить товары.`;
+        document.getElementsByClassName(`main-content`).item(0)
+            .append(emptyCan);
+        document.getElementsByClassName("total-count").item(0)
+            .innerHTML = `<strong>Итоговая стоимость: 
+                0 &#8381;</strong>`;
+
+        return;
+    }
 
     for (let object of orderArray) {
         let newProduct = document.createElement("div");
@@ -55,10 +74,14 @@ function displayMainContent() {
             productPrice.append(discountPrice);
             productPrice.append(actualPrice);
             productPrice.append(discountProcent);
+
+            totalCount += +object["discount_price"];
         } else {
             discountPrice.innerHTML = `${object["actual_price"]} &#8381;`;
     
             productPrice.append(discountPrice);
+
+            totalCount += +object["actual_price"];
         }
         
         let productAddButton = document.createElement("div");
@@ -79,6 +102,10 @@ function displayMainContent() {
     
         whereToPutElements.append(newProduct);
     }
+
+    document.getElementsByClassName("total-count").item(0)
+        .innerHTML = `<strong>Итоговая стоимость: 
+            ${totalCount ? totalCount + 500 : 0} &#8381;</strong>`;
 }
 
 displayMainContent();

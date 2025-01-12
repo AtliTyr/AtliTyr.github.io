@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <header>
+    <header class="border-bottom">
         <nav class="navbar navbar-expand-md bg-body-tertiary">
             <div class="container-fluid p-2">
                 <a class="navbar-brand" href="#">
@@ -28,43 +28,41 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                    <form class="w-50 m-auto d-flex" role="search">
+                    <div class="d-flex flex-column flex-md-row flex-fill">
+                    <form class="w-50 m-auto d-flex order-2 order-md-1" role="search">
                         <input class="form-control me-2" type="search" placeholder="Введите запрос" aria-label="Search" id="search-bar">
                         <button class="btn btn-outline-success" type="submit">Найти</button>
                     </form>
-                    <div>
+                    <div class="order-1 order-md-2">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="order.html">
+                                <a class="nav-link active d-flex flex-row" aria-current="page" href="order.html">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
                                         <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"/>
                                     </svg>
+                                    <p class="d-md-none fs-5 mx-3">
+                                        Корзина
+                                    </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link active d-flex flex-row" href="#">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                                     </svg>
+                                    <p class="d-md-none fs-5 mx-3">
+                                        Личный кабинет
+                                    </p>
                                 </a>
                             </li>
                         </ul>
+                    </div>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
-    <!--<notification class="d-flex justify-content-between p-3 bg-success-subtle">
-        <p class="m-0">
-            Ваше сообщение!
-        </p>
-        <div id="closeNotification">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-            </svg>  
-        </div>
-    </notification> -->
     <main class="d-flex flex-column">
         <div class="container-fluid p-0 flex-fill d-flex">
             <div class="row m-0">
@@ -114,7 +112,7 @@
         <script src="mainPage/mainPageAddingProductScript.js"></script> 
         <script src="sharedScripts/notificationConstructor.js"></script>
     </main>
-    <footer class="bg-body-tertiary d-sm-flex justify-content-between">
+    <footer class="bg-body-tertiary d-sm-flex justify-content-between border-top">
         <p class="fs-5 m-auto"> 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-c-circle" viewBox="0 0 16 16">
                 <path d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.146 4.992c-1.212 0-1.927.92-1.927 2.502v1.06c0 1.571.703 2.462 1.927 2.462.979 0 1.641-.586 1.729-1.418h1.295v.093c-.1 1.448-1.354 2.467-3.03 2.467-2.091 0-3.269-1.336-3.269-3.603V7.482c0-2.261 1.201-3.638 3.27-3.638 1.681 0 2.935 1.054 3.029 2.572v.088H9.875c-.088-.879-.768-1.512-1.729-1.512"/>

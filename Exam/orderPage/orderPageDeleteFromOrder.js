@@ -42,9 +42,12 @@ function deleteProduct(event) {
             orderArray.splice(ind, 1);
         }
     });
-
+     
     window.localStorage.setItem("goods", JSON.stringify(productsIdArray));
-    
+    if (window.localStorage.getItem("goods").length == 2) {
+        window.localStorage.removeItem("goods");
+    }
+
     deleteMainContent();
     displayMainContent();
 
