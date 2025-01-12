@@ -23,6 +23,8 @@ function deleteOrderInfo() {
     });
 }
 
+let goodsInOrders = {};
+
 // Заполнение таблицы с заказами
 async function displayOrders() {
     let iter = 0;
@@ -41,8 +43,7 @@ async function displayOrders() {
         {
             let createdAt = document.createElement("td");
             createdAt.innerHTML = formateDate(order["created_at"]);
-            createdAt.className = "d-none d-sm-table-cell";
-            createdAt.className = "align-middle";
+            createdAt.className = "d-none d-sm-table-cell align-middle";
             newOrd.append(createdAt);
         }
         {
@@ -60,9 +61,11 @@ async function displayOrders() {
                         return response.json();
                     })
                     .then(data => {
+                        goodsInOrders[data["id"]] = [data["name"], 
+                            (data[`discount_price`] ?? data[`actual_price`])];
+                        
                         contentOfOrder.innerHTML += `${data["name"]}; <br>`;
-                        if (data["discount_price"] != null)
-                            total += 
+                        total += 
                             +(data["discount_price"] ?? data["actual_price"]);
                     });
             }
