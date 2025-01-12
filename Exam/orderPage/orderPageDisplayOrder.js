@@ -1,3 +1,5 @@
+"use strict";
+
 function deleteMainContent() {
     document.getElementsByClassName("products").item(0).innerHTML = "";
     

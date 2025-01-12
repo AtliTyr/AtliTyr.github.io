@@ -1,3 +1,5 @@
+"use strict";
+
 function completeDeleteProducts() {
     deleteMainContent();
     if (document.querySelector("main-content p")) {
@@ -52,7 +54,7 @@ document.querySelector(`contact-form form`).
                 formData1.append(`good_ids`, good);
             });
 
-        specificUrl = "/exam-2024-1/api/orders";
+        let specificUrl = "/exam-2024-1/api/orders";
         let url = `${mainUrl}${specificUrl}?${apiKey}`;
         fetch(`${url}`, {
             method: "POST",
