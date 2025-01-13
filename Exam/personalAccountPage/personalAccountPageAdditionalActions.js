@@ -150,8 +150,11 @@ function fillOrderInfo() {
             innerHTML += `${goodsInOrders[id][0]}; <br>`;
         total += +goodsInOrders[id][1];
     }
+    let deliveryPrice = calculateDeliveryPrice(
+        ordersArray[chosenOrderId - 1]["delivery_date"],
+        ordersArray[chosenOrderId - 1]["delivery_interval"]);
     document.querySelector(".order-total-sum-info p.info").
-        innerHTML = `${total} &#8381;`;
+        innerHTML = `${total + deliveryPrice} &#8381;`;
 }
 
 function fillEditOrderInfo() { 
@@ -223,7 +226,11 @@ function fillEditOrderInfo() {
             innerHTML += `${goodsInOrders[id][0]}; <br>`;
         total += +goodsInOrders[id][1];
     }
+
+    let deliveryPrice = calculateDeliveryPrice(
+        ordersArray[chosenOrderId - 1]["delivery_date"],
+        ordersArray[chosenOrderId - 1]["delivery_interval"]);
     document.
         querySelector(".edit-order-info > div.order-total-sum-info > p.info").
-        innerHTML = `${total} &#8381;`;
+        innerHTML = `${total + deliveryPrice} &#8381;`;
 }

@@ -41,53 +41,58 @@ async function displayOrders() {
         th.innerHTML = `${iter}.`;
         th.className = "align-middle";
         newOrd.append(th);
-        {
-            let createdAt = document.createElement("td");
-            createdAt.innerHTML = formateDate(order["created_at"]);
-            createdAt.className = "d-none d-sm-table-cell align-middle";
-            newOrd.append(createdAt);
-        }
-        {
-            let total = 0;
 
-            let contentOfOrder = document.createElement("td");
-            let idArray = order["good_ids"];
-            let specificUrl = "/exam-2024-1/api/goods";
-            for (let id of idArray) {
-                await fetch(`${mainUrl}${specificUrl}/${id}?${apiKey}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error("Failed to get order info!");
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        goodsInOrders[data["id"]] = [data["name"], 
-                            (data[`discount_price`] ?? data[`actual_price`])];
-                        
-                        contentOfOrder.innerHTML += `${data["name"]}; <br>`;
-                        total += 
-                            +(data["discount_price"] ?? data["actual_price"]);
-                    });
-            }
-            contentOfOrder.className = "d-none d-md-table-cell align-middle";
-            newOrd.append(contentOfOrder);   
 
-            let orderPrice = document.createElement("td");
-            orderPrice.innerHTML = `${total} &#8381;`;
-            orderPrice.className = "d-none d-md-table-cell align-middle";
-            newOrd.append(orderPrice);
+        let createdAt = document.createElement("td");
+        createdAt.innerHTML = formateDate(order["created_at"]);
+        createdAt.className = "d-none d-sm-table-cell align-middle";
+        newOrd.append(createdAt);
+        
+
+        let total = 0;
+        let contentOfOrder = document.createElement("td");
+        let idArray = order["good_ids"];
+        let specificUrl = "/exam-2024-1/api/goods";
+        for (let id of idArray) {
+            await fetch(`${mainUrl}${specificUrl}/${id}?${apiKey}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to get order info!");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    goodsInOrders[data["id"]] = [data["name"], 
+                        (data[`discount_price`] ?? data[`actual_price`])];
+                    
+                    contentOfOrder.innerHTML += `${data["name"]}; <br>`;
+                    total += 
+                        +(data["discount_price"] ?? data["actual_price"]);
+                });
         }
-        {
-            let deliveryDate = order["delivery_date"].split("-").
-                reverse().join(".");
-            let deliveryInterval = order["delivery_interval"];
-            let deliveryInfo = document.createElement("td");
-            deliveryInfo.innerHTML = 
-                `${deliveryDate} <br> ${deliveryInterval}`;
-            deliveryInfo.className = "align-middle";
-            newOrd.append(deliveryInfo);
-        }
+        contentOfOrder.className = "d-none d-md-table-cell align-middle";
+        newOrd.append(contentOfOrder);
+        
+        
+        let deliveryPrice = calculateDeliveryPrice(order["delivery_date"],
+            order["delivery_interval"]
+        );
+        let orderPrice = document.createElement("td");
+        orderPrice.innerHTML = `${total + deliveryPrice} &#8381;`;
+        orderPrice.className = "d-none d-md-table-cell align-middle";
+        newOrd.append(orderPrice);
+        
+
+        calculateDeliveryPrice();
+
+        let deliveryDate = order["delivery_date"].split("-").
+            reverse().join(".");
+        let deliveryInterval = order["delivery_interval"];
+        let deliveryInfo = document.createElement("td");
+        deliveryInfo.innerHTML = 
+            `${deliveryDate} <br> ${deliveryInterval}`;
+        deliveryInfo.className = "align-middle";
+        newOrd.append(deliveryInfo);
         // Создание иконок, вызывающих модальные окна для взаимодействия с 
         // заказом
         {
