@@ -17,6 +17,19 @@ main {
     word-break: break-all;
 }
 
+.edit-order-info div > p {
+    word-break: break-all;
+}
+
+thead th {
+    vertical-align: middle !important;
+    text-align: center;
+}
+
+tbody td {
+    text-align: center;
+}
+
 footer {
     position: sticky;
     bottom: 0%;

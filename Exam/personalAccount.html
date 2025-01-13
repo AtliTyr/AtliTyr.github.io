@@ -79,10 +79,8 @@
                                 <th scope="col"></th>
                             </tr>
                         </thead>
-                        <tbody>
-
-                        </tbody>
-                        </table>
+                        <tbody></tbody>
+                    </table>
                 </div> 
                 <div class="modal fade" id="deleteOrder" tabindex="-1" role="dialog" aria-labelledby="deleteOrd" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -156,8 +154,73 @@
                         </div> 
     
                         <div class="modal-footer font-reg-sets">
-                        <button type="button" class="btn btn-secondary regularModalButton viewOrderButton" data-dismiss="modal">ОК</button>
+                        <button type="button" class="btn bg-white border-2 border-black regularModalButton viewOrderButton" data-dismiss="modal">ОК</button>
                         </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="editOrderInfo" tabindex="-1" role="dialog" aria-labelledby="editOrd" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                    <form>
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="editOrd">Редактирование заказа</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body edit-order-info container-fluid">
+                            <div class="date-info row">
+                                <p class="meta-info col-6"><strong>Дата оформления</strong></p>
+                                <p class="info col-6"></p>
+                            </div>
+                            <div class="full_name row mb-2">
+                                <p class="meta-info col-6"><strong>Имя</strong></p>
+                                <input type="text" id="full_name" class="info col-6" placeholder="Ivanov Ivan" name="full_name">
+                            </div>
+                            <div class="phone_number row mb-2">
+                                <p class="meta-info col-6"><strong>Номер телефона</strong></p>
+                                <input type="tel" id="phone" class="info col-6" name="phone" placeholder="+7 (999) 999-99-99">
+                            </div>
+                            <div class="email row mb-2">
+                                <p class="meta-info col-6"><strong>Email</strong></p>
+                                <input type="text" id="email" class="info col-6" name="email" placeholder="example@mail.ru">
+                            </div> 
+                            <div class="delivery_address row mb-2">
+                                <p class="meta-info col-6"><strong>Адрес доставки</strong></p>
+                                <input type="text" id="delivery_address" class="info col-6" name="delivery_address">
+                            </div>
+                            <div class="delivery_date row mb-2">
+                                <p class="meta-info col-6"><strong>Дата доставки</strong></p>
+                                <input type="date" id="delivery_date" class="info col-6" name="delivery_date">
+                            </div>
+                            <div class="delivery_time row mb-2">
+                                <p class="meta-info col-6"><strong>Время доставки</strong></p>
+                                <select name="delivery_interval" class="info col-6" id="delivery_interval">
+                                    <option value="08:00-12:00">08:00-12:00</option>
+                                    <option value="12:00-14:00">12:00-14:00</option>
+                                    <option value="14:00-18:00">14:00-18:00</option>
+                                    <option value="18:00-22:00">18:00-22:00</option>
+                                </select>
+                            </div>
+                            <div class="order-content-info row mb-2">
+                                <p class="meta-info col-6"><strong>Состав заказа</strong></p>
+                                <p class="info col-6"></p>
+                            </div>
+                            <div class="order-total-sum-info row mb-2">
+                                <p class="meta-info col-6"><strong>Стоимость</strong></p>
+                                <p class="info col-6"></p>
+                            </div>
+                            <div class="comment-info row mb-2">
+                                <p class="meta-info col-6"><strong>Комментарий</strong></p>
+                                <textarea name="comment" id="comment" class="info col-6" placeholder="#Нет комментария#"></textarea>
+                            </div>
+                        </div> 
+                        <div class="modal-footer">
+                        <button type="button" class="btn bg-white border-2 border-black regularModalButton" data-dismiss="modal">Отмена</button>
+                        <button type="submit" class="btn bg-white border-2 border-black updateOrderInfo" data-dismiss="modal">Сохранить</button>
+                        </div>
+                    </form>
                     </div>
                     </div>
                 </div>

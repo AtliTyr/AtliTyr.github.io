@@ -28,6 +28,7 @@ let goodsInOrders = {};
 // Заполнение таблицы с заказами
 async function displayOrders() {
     let iter = 0;
+    goodsInOrders = {};
 
     ordersArray.sort(orderDateCompare);
 
@@ -117,6 +118,7 @@ async function displayOrders() {
             });
             pencil.addEventListener("click", function(event) {
                 selectChosenOrderNumber(event);
+                fillEditOrderInfo();
             });
             eye.addEventListener("click", function(event) {
                 selectChosenOrderNumber(event);
@@ -130,7 +132,11 @@ async function displayOrders() {
         }
         document.querySelector(".list-of-orders tbody").append(newOrd);
     }   
-    
+
+    if (window.localStorage.getItem("notification")) {
+        notificationConstructor(window.localStorage.getItem("notification"));
+        window.localStorage.removeItem("notification");
+    }
 }
 
 displayOrders();

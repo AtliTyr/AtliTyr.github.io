@@ -64,7 +64,7 @@ document.querySelector(`contact-form form`).
                 if (!response.ok) {
                     if (response.status.toString() == "422") {
                         notificationConstructor(`ОШИБКА!!! 
-                            1) Возможные проблемы: Достигнуто максимальное
+                            Возможные проблемы: 1) Достигнуто максимальное
                             количество заказов(макс. 10)
                             2) Указана неверная дата доставки`);
                     } else {
