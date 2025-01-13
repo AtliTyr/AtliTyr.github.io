@@ -72,8 +72,13 @@ document.querySelector(`contact-form form`).
                         непредвиденной ошибки! Код ошибки: ${response.status}`);
                     }
                 } else {
-                    notificationConstructor(`Заказ успешно опубликован!`);
-                    completeDeleteProducts();
+                    window.localStorage.removeItem("goods");
+                    window.localStorage.setItem("notification",
+                        `Заказ успешно опубликован!`
+                    );
+                    location.href = "index.html";
+                    //notificationConstructor(`Заказ успешно опубликован!`);
+                    //completeDeleteProducts();
                 }
             });
     });

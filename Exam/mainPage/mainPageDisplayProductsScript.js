@@ -32,11 +32,23 @@ function sortByAscRating(firstProduct, secondProduct) {
 }
 
 function sortByDescPrice(firstProduct, secondProduct) {
-    
+    let first = 
+        +(firstProduct["discount_price"] ?? firstProduct["actual_price"]);
+    let second = 
+        +(secondProduct["discount_price"] ?? secondProduct["actual_price"]);
+    return (first > second) ? -1 :
+        (first < second) ? 1 :
+            0;
 }
 
 function sortByAscPrice(firstProduct, secondProduct) {
-    
+    let first = 
+        +(firstProduct["discount_price"] ?? firstProduct["actual_price"]);
+    let second = 
+        +(secondProduct["discount_price"] ?? secondProduct["actual_price"]);
+    return (first < second) ? -1 :
+        (first > second) ? 1 :
+            0;
 }
 
 function deleteMainContent() {
@@ -46,6 +58,12 @@ function deleteMainContent() {
 function displayMainContent() {
     let whereToPutElements = document.
         getElementsByClassName("products").item(0);
+
+    if (window.localStorage.getItem("notification")) {
+        notificationConstructor(window.localStorage.getItem("notification"));
+        window.localStorage.removeItem("notification");
+    }
+
     switch (sortType) {
     case 'rating-desc':
         productArray.sort(sortByDescRating);
