@@ -1,5 +1,7 @@
 "use strict";
 
+let totalCount = 0;
+
 function deleteMainContent() {
     document.getElementsByClassName("products").item(0).innerHTML = "";
     
@@ -9,7 +11,7 @@ function displayMainContent() {
     let whereToPutElements = document.
         getElementsByClassName("products").item(0);
 
-    let totalCount = 0;
+    totalCount = 0;
     
     if (orderArray.length == 0) {
         let emptyCan = document.createElement("p");
@@ -104,10 +106,13 @@ function displayMainContent() {
     
         whereToPutElements.append(newProduct);
     }
-
     document.getElementsByClassName("total-count").item(0)
         .innerHTML = `<strong>Итоговая стоимость: 
-            ${totalCount ? totalCount + 500 : 0} &#8381;</strong>`;
+            ${totalCount ? totalCount + calculateDeliveryPrice(
+        document.querySelector(`input[name="delivery_date"]`).value,
+        document.querySelector(`select[name="delivery_interval"]`).value
+    ) : 0}
+             &#8381;</strong>`;
 }
 
 displayMainContent();

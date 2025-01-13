@@ -34,9 +34,6 @@ function notificationConstructor(notificationMessage) {
         .insertBefore(notification, documentMain);
 
     setTimeout(() => {
-        //if (notification.parentNode != null) {
-        //    notification.remove();
-        //}
         notification.remove();
-    }, 12000);
+    }, 5000);
 }

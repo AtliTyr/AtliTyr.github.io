@@ -80,15 +80,15 @@
                         <div class="col-12 col-sm-6">
                             <div class="d-flex flex-column mb-3">
                                 <label for="name">Имя</label>
-                                <input type="text" id="name" class="" name="full_name" value="Иванов Иван" placeholder="Иванов Иван" required>
+                                <input type="text" id="name" class="" name="full_name" placeholder="Иванов Иван" required>
                             </div>
                             <div class="d-flex flex-column mb-3">
                                 <label for="phone_number">Номер телефона </label>
-                                <input type="tel" id="phone_number" name="phone" value="+74952230523" placeholder="+74952230523" required>
+                                <input type="tel" id="phone_number" name="phone" placeholder="+74952230523" required>
                             </div>
                             <div class="d-flex flex-column mb-3">
                                 <label for="email">Email</label>
-                                <input type="text" id="email" name="email" value="example@mospolytech.ru" placeholder="example@mospolytech.ru" required>
+                                <input type="text" id="email" name="email" placeholder="example@mospolytech.ru" required>
                                 <div class="d-inline-flex d-md-flex mt-2 justify-content-start">   
                                     <input type="checkbox" class="order-2 order-lg-1" id="subscribe" name="subscribe">
                                     <label for="subscribe" class="order-1 order-lg-2 mx-2">Подписаться на рассылку</label>
@@ -102,11 +102,11 @@
                         <div class="col-12 col-sm-6">
                             <div class="d-flex flex-column mb-3">
                                 <label for="address">Адрес доставки</label>
-                                <input type="text" id="address" name="delivery_address" value="ул. Большая Семёновская, 38" placeholder="ул. Большая Семёновская, 38" required>
+                                <input type="text" id="address" name="delivery_address" placeholder="ул. Большая Семёновская, 38" required>
                             </div>
                             <div class="d-flex flex-column mb-3">
                                 <label for="delivery_date">Дата доставки</label>
-                                <input type="date" value="2025-01-12" name="delivery_date" id="delivery_date" required>
+                                <input type="date" name="delivery_date" id="delivery_date" required>
                             </div>
                             <div class="d-flex flex-column mb-3">
                                 <label for="delivery_interval">Временной интервал доставки</label>
@@ -119,7 +119,7 @@
                             </div>
                             <div class="d-flex flex-column mb-3 align-items-center">
                                 <p class="m-0 fs-4 total-count"></p>
-                                <p class="fs-5"><small>(Стоимость доставки 500 &#8381;)</small></p>
+                                <p class="fs-5 delivery_price"><small>(Стоимость доставки 200 &#8381;)</small></p>
                             </div>
                             <div class="contact-form-buttons mb-3 d-flex flex-column flex-lg-row justify-content-around">
                                 <button class="my-2 mx-3 rounded-4 bg-white flex-fill" type="reset">Сбросить</button>
@@ -134,6 +134,7 @@
         <script src="orderPage/orderPageLoadingOrderInfo.js"></script>
         <script src="orderPage/orderPageDeleteFromOrder.js"></script>
         <script src="sharedScripts/notificationConstructor.js"></script>
+        <script src="orderPage/orderPageFormInfo.js"></script>
         <script src="orderPage/orderPagePlaceOrder.js"></script>
     </main>
     
