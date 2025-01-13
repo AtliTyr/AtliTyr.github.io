@@ -10,29 +10,6 @@ div#closeNotification {
     cursor: pointer;
     margin-left: 0.5rem;
 }
-/*
-header {
-    position: relative;
-}
-
-notification {  
-    width: 100%;
-    position: absolute;
-    animation: fadeInAnimation ease 10s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    
-}*/
-
-/*@keyframes fadeInAnimation {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}*/
 
 .products {
     display: grid;

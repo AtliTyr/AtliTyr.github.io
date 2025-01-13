@@ -15,6 +15,30 @@ function isPriceFitInInterval(priceFrom, priceTo, price) {
     }
 }
 
+function sortByDescRating(firstProduct, secondProduct) {
+    let first = +firstProduct["rating"];
+    let second = +secondProduct["rating"];
+    return (first > second) ? -1 :
+        (first < second) ? 1 :
+            0;
+}
+
+function sortByAscRating(firstProduct, secondProduct) {
+    let first = +firstProduct["rating"];
+    let second = +secondProduct["rating"];
+    return (first < second) ? -1 :
+        (first > second) ? 1 :
+            0;
+}
+
+function sortByDescPrice(firstProduct, secondProduct) {
+    
+}
+
+function sortByAscPrice(firstProduct, secondProduct) {
+    
+}
+
 function deleteMainContent() {
     document.getElementsByClassName("products").item(0).innerHTML = "";
 }
@@ -22,6 +46,20 @@ function deleteMainContent() {
 function displayMainContent() {
     let whereToPutElements = document.
         getElementsByClassName("products").item(0);
+    switch (sortType) {
+    case 'rating-desc':
+        productArray.sort(sortByDescRating);
+        break;
+    case 'rating-asc':
+        productArray.sort(sortByAscRating);
+        break;
+    case 'price-desc':
+        productArray.sort(sortByDescPrice);
+        break;
+    case 'price-asc':
+        productArray.sort(sortByAscPrice);
+        break;
+    }
 
     for (let object of productArray) {
         if (searchParameter != undefined) {

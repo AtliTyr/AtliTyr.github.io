@@ -98,8 +98,14 @@
                     </form>
                 </div>
                 <div class="col-8 col-sm-8 col-md-9 col-lg-10 main-content px-3 mb-5 flex-fill">
-                    <div class="header-of-catalog p-3">
-                        <p class="fs-2">Каталог</p>
+                    <div class="header-of-catalog p-3 d-flex justify-content-between">
+                        <p class="fs-2 m-0">Каталог</p>
+                        <select name="sort-type" class="rounded-2 ">
+                            <option value="rating-desc">По убыванию рейтинга</option>
+                            <option value="rating-asc">По возрастания рейтинга</option>
+                            <option value="price-desc">По убыванию цены</option>
+                            <option value="price-asc">По возрастанию цены</option>
+                        </select>
                     </div>
                     <div class="products"></div>   
                 </div>
@@ -109,6 +115,7 @@
         <script src="mainPage/mainPageSearchBarScript.js"></script>
         <script src="mainPage/mainPageLoadingProductsScript.js"></script>
         <script src="mainPage/mainPageFilterScript.js"></script>
+        <script src="mainPage/mainPageSortTypeScript.js"></script>
         <script src="mainPage/mainPageAddingProductScript.js"></script> 
         <script src="sharedScripts/notificationConstructor.js"></script>
     </main>
