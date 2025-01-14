@@ -2,6 +2,11 @@
     box-sizing: border-box; 
 }
 
+.navbar-brand p {
+    font-family: "Shantell Sans";
+    font-size: x-large;
+}
+
 body {
     display: flex;
     flex-direction: column;

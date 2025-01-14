@@ -38,6 +38,9 @@ function displayMainContent() {
         productImage.src = object["image_url"];
     
         let productName = document.createElement("p");
+        productName.setAttribute(`data-bs-toggle`, `tooltip`);
+        productName.setAttribute(`data-bs-title`, object["name"]);
+        productName.setAttribute(`data-bs-placement`, `auto`);
         productName.innerHTML = object["name"];
     
         let productRating = document.createElement("div");

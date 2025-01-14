@@ -110,13 +110,19 @@ function displayMainContent() {
         let newProduct = document.createElement("div");
         newProduct.className = "product-card";
         newProduct.id = `id-${object["id"]}`;
+        
 
         let productImage = document.createElement("img");
         productImage.src = object["image_url"];
     
+
         let productName = document.createElement("p");
+        productName.setAttribute(`data-bs-toggle`, `tooltip`);
+        productName.setAttribute(`data-bs-title`, object["name"]);
+        productName.setAttribute(`data-bs-placement`, `auto`);
         productName.innerHTML = object["name"];
-    
+
+
         let productRating = document.createElement("div");
         productRating.className = "product-rating";
         let productRatingNumber = document.createElement("p");
@@ -135,9 +141,11 @@ function displayMainContent() {
         productRating.append(productRatingNumber);
         productRating.append(productRatingStars);
     
+
         let productPrice = document.createElement("div");
         productPrice.
-            className = "product-price d-flex justify-content-between"; 
+            className = `product-price d-flex 
+            justify-content-between flex-wrap`; 
         let discountPrice = document.createElement("p");
         if (object["discount_price"] != null) {
             discountPrice.innerHTML = `${object["discount_price"]} &#8381;`;
@@ -161,6 +169,7 @@ function displayMainContent() {
             productPrice.append(discountPrice);
         }
         
+
         let productAddButton = document.createElement("div");
         let addButton = document.createElement("button");
         addButton.type = "button";
@@ -172,12 +181,21 @@ function displayMainContent() {
         productAddButton.append(addButton);
     
         newProduct.append(productImage);
+        
+        //newProduct.append(toolTip);
+
         newProduct.append(productName);
         newProduct.append(productRating);
         newProduct.append(productPrice);
         newProduct.append(productAddButton);
     
         whereToPutElements.append(newProduct);
+
+        const tooltipTriggerList = 
+            document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = 
+            [...tooltipTriggerList].map(tooltipTriggerEl => 
+                new bootstrap.Tooltip(tooltipTriggerEl));
     }
 }
 
