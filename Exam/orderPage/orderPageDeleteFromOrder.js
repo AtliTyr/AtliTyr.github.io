@@ -52,6 +52,6 @@ function deleteProduct(event) {
     displayMainContent();
 
     notificationConstructor(`Товар ${chosenProductName} был 
-            успешно удалён из корзины!`);
+            успешно удалён из корзины!`, "success");
 
 }

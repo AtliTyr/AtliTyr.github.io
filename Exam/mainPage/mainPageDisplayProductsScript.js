@@ -60,8 +60,11 @@ function displayMainContent() {
         getElementsByClassName("products").item(0);
 
     if (window.localStorage.getItem("notification")) {
-        notificationConstructor(window.localStorage.getItem("notification"));
+        notificationConstructor(
+            window.localStorage.getItem("notification"),
+            window.localStorage.getItem("notificationType"));
         window.localStorage.removeItem("notification");
+        window.localStorage.removeItem("notificationType");
     }
 
     switch (sortType) {

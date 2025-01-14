@@ -40,9 +40,11 @@ function addProduct(event) {
         orderArray.push(chosenProductId);
         window.localStorage.setItem("goods", JSON.stringify(orderArray));
         notificationConstructor(`Товар ${chosenProductName} был 
-            успешно добавлен в корзину!`);
+            успешно добавлен в корзину!`, "success");
     } else {
-        notificationConstructor(`Товар уже добавлен в корзину!`);
+        notificationConstructor(`Товар уже добавлен в корзину!`,
+            "error"
+        );
     }
 
 }

@@ -1,8 +1,30 @@
-function notificationConstructor(notificationMessage) {
+function notificationConstructor(notificationMessage, notificationType) {
     let notification = document.createElement("notification");
+    
+    // Для успешных операций
+    // bg-success-subtle border-success
+    // Для провальных операций
+    // bg-danger-subtle border-danger
+    // Для информационных уведомлений
+    // bg-primary-subtle border-primary
+    
+    let classProperties;
+    switch (notificationType) {
+    case 'error':
+        classProperties = `bg-danger-subtle border-danger`;
+        break;
+    case 'info':
+        classProperties = `bg-primary-subtle border-primary`;
+        break;
+    default:
+    case 'success':
+        classProperties = `bg-success-subtle border-success`;
+        break;
+    }
+    //classProperties = `bg-success-subtle border-success`;
+
     notification.className = 
-        `d-flex justify-content-between p-3 bg-success-subtle 
-            border-bottom border-success`;
+        `d-flex justify-content-between p-3 border-bottom ${classProperties}`;
     
     let notificationMessageElement = document.createElement("p");
     notificationMessageElement.innerHTML = notificationMessage;

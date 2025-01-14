@@ -139,8 +139,10 @@ async function displayOrders() {
     }   
 
     if (window.localStorage.getItem("notification")) {
-        notificationConstructor(window.localStorage.getItem("notification"));
+        notificationConstructor(window.localStorage.getItem("notification"),
+            window.localStorage.getItem("notificationType"));
         window.localStorage.removeItem("notification");
+        window.localStorage.removeItem("notificationType");
     }
 }
 

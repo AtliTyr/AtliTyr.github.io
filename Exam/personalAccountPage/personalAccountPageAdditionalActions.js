@@ -18,14 +18,14 @@ document.querySelector(".confirmDeleteButton").addEventListener("click",
                     throw new Error("Ошибка в процессе удаления заказа!");
                 }
                 window.localStorage.setItem("notification",
-                    `Заказ успешно удалён!`
-                );
+                    `Заказ успешно удалён!`);
+                window.localStorage.setItem("notificationType", "success");
                 location.reload();
             })
             .catch(error => {
                 window.localStorage.setItem("notification", 
-                    error
-                );
+                    error);
+                window.localStorage.setItem("notificationType", "error");
                 location.reload();
             });
     });
@@ -81,14 +81,13 @@ document.querySelector(".updateOrderInfo").
                         Ошибка при обновлении информации о заказе`);
                 }
                 window.localStorage.setItem("notification",
-                    `Информация по заказу была успешно обновлена`
-                );
+                    `Информация по заказу была успешно обновлена`);
+                window.localStorage.setItem("notificationType", "success");
                 location.reload();
             })
             .catch(error => {
-                window.localStorage.setItem("notification", 
-                    error
-                );
+                window.localStorage.setItem("notification", error);
+                window.localStorage.setItem("notificationType", "error");
                 location.reload();
             });
     });

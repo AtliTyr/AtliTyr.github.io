@@ -17,7 +17,7 @@ document.querySelector(`contact-form form`).
         event.preventDefault();
 
         if (window.localStorage.getItem("goods") == null) {
-            notificationConstructor("Вы ничего не добавили в корзину!");
+            notificationConstructor("Вы ничего не добавили в корзину!", "info");
             return;
         }
 
@@ -66,19 +66,20 @@ document.querySelector(`contact-form form`).
                         notificationConstructor(`ОШИБКА!!! 
                             Возможные проблемы: 1) Достигнуто максимальное
                             количество заказов(макс. 10)
-                            2) Указана неверная дата доставки`);
+                            2) Указана неверная дата доставки`,
+                        "error");
                     } else {
                         notificationConstructor(`Заказ не был опубликован из-за 
-                        непредвиденной ошибки! Код ошибки: ${response.status}`);
+                        неизвестной ошибки! Код ошибки: ${response.status}`,
+                        "error");
                     }
                 } else {
                     window.localStorage.removeItem("goods");
-                    window.localStorage.setItem("notification",
-                        `Заказ успешно опубликован!`
-                    );
+                    window.localStorage.setItem("notification", 
+                        `Заказ успешно опубликован!`);
+                    window.localStorage.setItem("notificationType",
+                        "success");
                     location.href = "index.html";
-                    //notificationConstructor(`Заказ успешно опубликован!`);
-                    //completeDeleteProducts();
                 }
             });
     });
