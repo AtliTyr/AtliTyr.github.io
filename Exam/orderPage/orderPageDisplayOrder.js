@@ -116,6 +116,12 @@ function displayMainContent() {
         document.querySelector(`select[name="delivery_interval"]`).value
     ) : 0}
              &#8381;</strong>`;
+
+    const tooltipTriggerList = 
+             document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = 
+             [...tooltipTriggerList].map(tooltipTriggerEl => 
+                 new bootstrap.Tooltip(tooltipTriggerEl));
 }
 
 displayMainContent();

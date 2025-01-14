@@ -138,7 +138,7 @@ div#closeNotification {
 
 @media (max-width: 1650px) {
     .product-card img {
-        height: 20rem;
+        height: 23rem;
     }
 }
 
@@ -152,9 +152,12 @@ div#closeNotification {
     .products {
         grid-template-columns: 1fr 1fr;
     }
+    .product-card img {
+        height: 28rem;
+    }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 769px) {
     .products {
         grid-template-columns: 1fr;
     }
