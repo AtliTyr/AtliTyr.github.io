@@ -1432,6 +1432,16 @@ class Faker:
         """
         ...
 
+    def doi(self) -> str:
+        """
+        Generate a valid Digital Object Identifier (DOI).
+        Format: 10.{4-9 digits}/{alphanumeric string}
+        Eg: 10.1000/xyz123
+
+        :sample:
+        """
+        ...
+
     def emoji(self) -> str:
         """
         :example: '😉'
@@ -2203,6 +2213,19 @@ class Faker:
         ...
 
     @overload
+    def md5(self) -> str:
+        """
+        Generate a random MD5 hash.
+
+        If ``raw_output`` is ``False`` (default), a hexadecimal string representation of the MD5 hash
+        will be returned. If ``True``, a ``bytes`` object representation will be returned instead.
+
+        :sample: raw_output=False
+        :sample: raw_output=True
+        """
+        ...
+
+    @overload
     def md5(self, raw_output: Literal[True]) -> bytes:
         """
         Generate a random MD5 hash.
@@ -2278,6 +2301,19 @@ class Faker:
         ...
 
     @overload
+    def sha1(self) -> str:
+        """
+        Generate a random SHA-1 hash.
+
+        If ``raw_output`` is ``False`` (default), a hexadecimal string representation of the SHA-1 hash
+        will be returned. If ``True``, a ``bytes`` object representation will be returned instead.
+
+        :sample: raw_output=False
+        :sample: raw_output=True
+        """
+        ...
+
+    @overload
     def sha1(self, raw_output: Literal[True]) -> bytes:
         """
         Generate a random SHA-1 hash.
@@ -2296,6 +2332,19 @@ class Faker:
         Generate a random SHA-1 hash.
 
         If ``raw_output`` is ``False`` (default), a hexadecimal string representation of the SHA-1 hash
+        will be returned. If ``True``, a ``bytes`` object representation will be returned instead.
+
+        :sample: raw_output=False
+        :sample: raw_output=True
+        """
+        ...
+
+    @overload
+    def sha256(self) -> str:
+        """
+        Generate a random SHA-256 hash.
+
+        If ``raw_output`` is ``False`` (default), a hexadecimal string representation of the SHA-256 hash
         will be returned. If ``True``, a ``bytes`` object representation will be returned instead.
 
         :sample: raw_output=False
@@ -3409,13 +3458,8 @@ class Faker:
         """
         https://es.wikipedia.org/wiki/C%C3%B3digo_de_identificaci%C3%B3n_fiscal
         :return: a random Spanish CIF
-        """
-        ...
 
-    def doi(self) -> str:
-        """
-        https://es.wikipedia.org/wiki/Identificador_de_objeto_digital
-        :return: a random Spanish CIF or NIE or NIF
+        :sample:
         """
         ...
 
@@ -3423,6 +3467,8 @@ class Faker:
         """
         https://es.wikipedia.org/wiki/N%C3%BAmero_de_identidad_de_extranjero
         :return: a random Spanish NIE
+
+        :sample:
         """
         ...
 
@@ -3430,6 +3476,8 @@ class Faker:
         """
         https://es.wikipedia.org/wiki/N%C3%BAmero_de_identificaci%C3%B3n_fiscal
         :return: NIF
+
+        :sample:
         """
         ...
 
@@ -3437,6 +3485,9 @@ class Faker:
         """
         :param company: flag to indicate if we should generate a company NUSS
         :return: a random Spanish Social Security Number (Número de la Seguridad Social)
+
+        :sample:
+        :sample: company=True
         """
         ...
 
